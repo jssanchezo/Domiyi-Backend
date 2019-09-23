@@ -1,2 +1,2 @@
 # Domiyi-Backend
-repository about backend side of Domiyi project, implementing an REST API 
+repository about backend side of Domiyi project, implementing an REST API.
