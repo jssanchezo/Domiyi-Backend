@@ -1,0 +1,1 @@
+**This directory is for implementation of aims to manage the database**
