@@ -30,6 +30,9 @@ const User = {
     getUsernameFieldName(){
         return 'username';
     },
+    getQuerySelectAll(){
+        return 'select * from '+this.getTableName();
+    },
     getQuerySelectById(Id) {
         return 'select * from ' + this.getTableName() + ' where ' + this.getIdFieldName() + '=' + Id;
     },
