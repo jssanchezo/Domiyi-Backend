@@ -1,6 +1,6 @@
 const express=require('express');
 const app=express();
-
+const user=require('./Database-Utilities/Users');
 
 //settings
 app.set('port',process.env.PORT||3000); //set the number port for listen request
