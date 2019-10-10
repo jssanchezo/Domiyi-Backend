@@ -11,8 +11,6 @@ SelectAll(req,res){
         }
     });
 }
-
-
 }
 
 
