@@ -10,7 +10,7 @@ database:Params.database
 })
 connection.connect((err)=>{
 if(err){
-    console.log(er);
+    console.log(err);
     return;
 }else{
     console.log('database is connected');
