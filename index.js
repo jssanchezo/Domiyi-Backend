@@ -3,6 +3,7 @@ const app=express();
 const users_routes=require('./routes/user.js');
 const products_routes=require('./routes/product.js');
 
+
 //settings
 app.set('port',process.env.PORT||3000); //set the number port for listen request
 //Middleware

@@ -46,8 +46,10 @@ const Product = {
     },
     getQueryInsert(product){
         return 'CALL insertProducts ('+product.name+','+product.description+','+product.price+','+product.image+')';
+    },
+    getQuerySelectByPrice(price, price2){
+        return 'select * from '+ this.getTableName() +' where '+ this.getPrice() + ' <= ' + price2 + ' and ' + this.getPrice() + '>=' + price;
     }
-
 
 }
 
