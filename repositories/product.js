@@ -12,9 +12,12 @@ const productRepository={
             }
         });
     },
-    // price,price2
-    SelectByPrice(req, res) {
-        connection.query(ProductTable.getQuerySelectByPrice(50, 100),(err,rows,fields)=>{
+    //
+    SelectByPrice(req, res, price,price2) {
+        price = 50;
+        price2 = 200;
+
+        connection.query(ProductTable.getQuerySelectByPrice(price, price2),(err,rows,fields)=>{
             if(!err){
                 res.json(rows);
             }else{
