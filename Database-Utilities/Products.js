@@ -50,7 +50,6 @@ const Product = {
     getQuerySelectByPrice(price, price2){
         return 'select * from '+ this.getTableName() +' where '+ this.getPrice() + ' <= ' + price2 + ' and ' + this.getPrice() + '>=' + price;
     }
-
 }
 
 module.exports = Product;

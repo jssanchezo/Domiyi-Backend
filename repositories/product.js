@@ -13,11 +13,8 @@ const productRepository={
         });
     },
     //
-    SelectByPrice(req, res, price,price2) {
-        price = 50;
-        price2 = 200;
-
-        connection.query(ProductTable.getQuerySelectByPrice(price, price2),(err,rows,fields)=>{
+    SelectByPrice(req, res) {
+        connection.query(ProductTable.getQuerySelectByPrice(req.body.price, req.body.price2),(err,rows,fields)=>{
             if(!err){
                 res.json(rows);
             }else{
@@ -27,8 +24,7 @@ const productRepository={
     },
     //
     SelectById(req, res) {
-        Id = 2;
-        connection.query(ProductTable.getQuerySelectById(Id),(err,rows,fields)=>{
+        connection.query(ProductTable.getQuerySelectById(req.body.id),(err,rows,fields)=>{
             if(!err){
                 res.json(rows);
             }else{

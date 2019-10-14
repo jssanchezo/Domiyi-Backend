@@ -3,9 +3,8 @@ const express =require('express');
 const connection = require('../Database-Utilities/Connection.js');
 const CompanyTable = require('../Database-Utilities/Company.js');
 const companyRepository={
-    SelectByCategory(req,res,category){
-        category = 0;
-        connection.query(CompanyTable.getQueryCompaniesByCategory(category),(err,rows,fields)=>{
+    SelectByCategory(req,res){
+        connection.query(CompanyTable.getQueryCompaniesByCategory(req.body.category),(err,rows,fields)=>{
             if(!err){
                 res.json(rows);
             }else{
@@ -13,9 +12,8 @@ const companyRepository={
             }
         });
     },
-    SelectByAdminId(req,res,adminId){
-        adminId = 1;
-        connection.query(CompanyTable.getQueryCompanyByIdAdmin(adminId),(err,rows,fields)=>{
+    SelectByAdminId(req,res){
+        connection.query(CompanyTable.getQueryCompanyByIdAdmin(req.body.adminId),(err,rows,fields)=>{
             if(!err){
                 res.json(rows);
             }else{
