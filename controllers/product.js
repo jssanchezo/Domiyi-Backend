@@ -6,6 +6,9 @@ const ProductController={
     },
     async getByPrice(req, res){
         await ProductRepository.SelectByPrice(req,res);
+    },
+    async getById(req, res){
+        await ProductRepository.SelectById(req,res);
     }
 }
 module.exports=ProductController;

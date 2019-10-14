@@ -24,6 +24,17 @@ const productRepository={
                 console.log(err);
             }
         });
+    },
+    //
+    SelectById(req, res) {
+        Id = 2;
+        connection.query(ProductTable.getQuerySelectById(Id),(err,rows,fields)=>{
+            if(!err){
+                res.json(rows);
+            }else{
+                console.log(err);
+            }
+        });
     }
 };
 
