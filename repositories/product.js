@@ -1,5 +1,5 @@
 const connection=require('../Database-Utilities/Connection.js');
-const ProductTable=require('../Database-Utilities/product.js');
+const ProductTable=require('../Database-Utilities/Products.js');
 const ProductRepository={
     register(req,res){
         connection.query(ProductTable.getQueryInsert(req.body),(err,rows,fields)=>{
