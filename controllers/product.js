@@ -1,3 +1,4 @@
+
 const ProductRepository=require('../repositories/product.js');
 
 const ProductController={
@@ -9,7 +10,11 @@ const ProductController={
     },
     async getById(req, res){
         await ProductRepository.SelectById(req,res);
-    }
+    },
+  async register(req,res){
+    await ProductRepository.register(req,res);
+}
 }
 module.exports=ProductController;
+
 
