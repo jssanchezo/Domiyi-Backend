@@ -8,8 +8,8 @@ const ProductsStatus = {
     getName() {
         return 'name';
     },
-    getQuerySelectAllStatus(price, price2){
-        return 'select '+ this.getName() + ' from ' + this.getTableName();
+    getQuerySelectAllStatus(price, price2) {
+        return 'select ' + this.getName() + ' from ' + this.getTableName();
     }
 }
 

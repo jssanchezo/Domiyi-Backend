@@ -21,27 +21,27 @@ const Company = {
     getIdAdmin() {
         return 'idAdmin';
     },
-    getCategory () {
+    getCategory() {
         return 'category';
     },
-    getDeliveryCost(){
+    getDeliveryCost() {
         return 'deliveryCost';
     },
-    getOfficeHours(){
+    getOfficeHours() {
         return 'officeHours';
     },
     getQuerySelectById(Id) {
         return 'select * from ' + this.getTableName() + ' where ' + this.getIdFieldName() + '=' + Id;
     },
-    getQuerySelectByCompanyName(companyName){
+    getQuerySelectByCompanyName(companyName) {
         return 'select * from ' + this.getTableName() + ' where ' + this.getName() + '=' + companyName;
     }
     ,
-    getQueryIdByCompanyName(companyName){
-        return 'select '+ this.getId()  + ' from '+this.getTableName()+' where '+this.getName()+'='+companyName;
+    getQueryIdByCompanyName(companyName) {
+        return 'select ' + this.getId() + ' from ' + this.getTableName() + ' where ' + this.getName() + '=' + companyName;
     },
-    getQueryInsert(product){
-        return 'CALL insertProducts ('+product.name+','+product.description+','+product.price+','+product.image+')';
+    getQueryInsert(product) {
+        return 'CALL insertProducts (' + product.name + ',' + product.description + ',' + product.price + ',' + product.image + ')';
     },
     getQueryCompaniesByCategory(category) {
         return 'select * from ' + this.getTableName() + ' where ' + this.getCategory() + '=' + category;
