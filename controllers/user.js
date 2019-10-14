@@ -6,5 +6,6 @@ await UserRepository.SelectAll(req,res);
 }
 
 
+
 }
 module.exports=UserController;

@@ -4,7 +4,7 @@ const User = {
     },
     getIdFieldName() {
         return 'id';
-    }
+    }   
     ,
     getEmailFieldName() {
         return 'email';
@@ -43,9 +43,10 @@ const User = {
     getQuerygetPasswordByUsername(username){
         return 'select '+this.getPasswordFieldName()+ ' from '+this.getTableName()+' where '+this.getUsernameFieldName+'='+username;
     },
-    getQueryInsert(user){
+    getQueryInsert(req){
         return 'CALL insertUser ('+user.email+','+user.password+','+user.name+','+user.type+','+user.phone+','+
         user.career+','+user.street+','+user.username+')';
+    
     }
 
 
