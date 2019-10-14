@@ -12,6 +12,16 @@ const companyRepository={
                 console.log(err);
             }
         });
+    },
+    SelectByAdminId(req,res,adminId){
+        adminId = 1;
+        connection.query(CompanyTable.getQueryCompanyByIdAdmin(adminId),(err,rows,fields)=>{
+            if(!err){
+                res.json(rows);
+            }else{
+                console.log(err);
+            }
+        });
     }
 };
 

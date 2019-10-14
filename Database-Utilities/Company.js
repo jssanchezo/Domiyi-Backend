@@ -45,6 +45,9 @@ const Company = {
     },
     getQueryCompaniesByCategory(category) {
         return 'select * from ' + this.getTableName() + ' where ' + this.getCategory() + '=' + category;
+    },
+    getQueryCompanyByIdAdmin(adminID) {
+        return 'select * from ' + this.getTableName() + ' where ' + this.getIdAdmin() + '=' + adminID;
     }
 
 }
