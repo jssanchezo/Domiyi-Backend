@@ -1,7 +1,7 @@
 const express=require('express');
 const router=express.Router();
 
-
+//we match all routes with the functions wich it executes
 
 const ProductController= require('../controllers/product.js');
 router.get('/products',ProductController.getAll);

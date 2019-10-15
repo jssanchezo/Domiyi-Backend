@@ -4,7 +4,7 @@ const UserTable = require('../Database-Utilities/Users.js');
 const userRepository = {
 
     SelectAll(req, res) {
-
+//get all users registered
         connection.query(UserTable.getQuerySelectAll(), (err, rows, fields) => {
             if (!err) {
                 res.json(rows);
@@ -13,7 +13,7 @@ const userRepository = {
             }
         });
     },
-    register(req,res){
+    register(req,res){//req body is an user in json format
         connection.query(UserTable.getQueryInsert(req.body),(err,rows,fields)=>{
             if(!err){
                 res.json(rows);

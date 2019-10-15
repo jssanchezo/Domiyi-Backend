@@ -5,7 +5,7 @@ const Companies = {
     getId() {
         return 'id';
     }
-    ,
+    ,//we fix the fields names
     getIdStatus() {
         return 'idStatus';
     }
@@ -29,7 +29,7 @@ const Companies = {
     },
     getOfficeHours(){
         return 'officceHours';
-    },
+    },//define querys for the table companies wich return string for query method
     getQuerySelectById(Id) {
         return 'select * from ' + this.getTableName() + ' where ' + this.getId() + '=' + Id;
     },
@@ -38,7 +38,7 @@ const Companies = {
     },
     getQueryIdByCompanyName(companyName){
         return 'select '+ this.getId()  + ' from '+this.getTableName()+' where '+this.getName()+'='+companyName;
-    },
+    },//query for insert a company 
     getQueryInsert(company){
         return "insert into "+this.getTableName()+" values ("+company.id+","+company.idStatus+",'"+company.name+"','"+
             company.image+"',"+company.idAdmin+",'"+company.category+"','"+company.deliveryCost+"','"+company.officceHours+"')";
