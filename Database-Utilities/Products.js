@@ -1,5 +1,5 @@
 const Product = {
-    getTableName() {
+    getTableName() {//fix constants about fields in Product table 
         return 'products';
     },
     getIdFieldName() {
@@ -29,7 +29,7 @@ const Product = {
     getUpdatedFieldName() {
         return 'updated';
     },
-    
+    //querys for insert a product in JSON format 
     getQueryInsert(product) {
         return "insert into " + this.getTableName()+' ('+this.getIdCompanyFieldName()+','+this.getIdStatusFieldName()+','+this.getNameFieldName()+','+ 
         this.getDescriptionFieldName()+','+this.getPriceFieldName()+','+this.getImageFieldName()+','+this.getCategoryFieldName()+','

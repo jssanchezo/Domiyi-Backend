@@ -4,7 +4,7 @@
 const connection=require('../Database-Utilities/Connection.js');
 const ProductTable=require('../Database-Utilities/Products.js');
 const ProductRepository={
-    SelectAll(req,res){
+    SelectAll(req,res){//we obtain all products
         connection.query(ProductTable.getQuerySelectAll(),(err,rows,fields)=>{
             if(!err){
                 res.json(rows);
