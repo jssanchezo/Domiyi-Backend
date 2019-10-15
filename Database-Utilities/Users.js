@@ -4,10 +4,13 @@ const User = {
     },
     getIdFieldName() {
         return 'id';
-    }   
+    }
     ,
     getEmailFieldName() {
         return 'email';
+    },
+    getTypeFieldName() {
+        return 'type';
     },
     getPasswordFieldName() {
         return 'password';
@@ -18,41 +21,36 @@ const User = {
     getTypeFieldName() {
         return 'field';
     },
-    getPhoneFieldName(){
+    getPhoneFieldName() {
         return 'phone';
     },
-    getCareerFieldName(){
+    getCareerFieldName() {
         return 'career';
     },
-    getStreetFieldName(){
+    getStreetFieldName() {
         return 'street';
     },
-    getUsernameFieldName(){
+    getUsernameFieldName() {
         return 'username';
     },
-    getQuerySelectAll(){
-        return 'select * from '+this.getTableName();
+    getQuerySelectAll() {
+        return 'select * from ' + this.getTableName();
     },
     getQuerySelectById(Id) {
         return 'select * from ' + this.getTableName() + ' where ' + this.getIdFieldName() + '=' + Id;
     },
-    getQuerySelectByUsername(username){
+    getQuerySelectByUsername(username) {
         return 'select * from ' + this.getTableName() + ' where ' + this.getUsernameFieldName() + '=' + username;
     }
     ,
-    getQuerygetPasswordByUsername(username){
-        return 'select '+this.getPasswordFieldName()+ ' from '+this.getTableName()+' where '+this.getUsernameFieldName+'='+username;
+    getQuerygetPasswordByUsername(username) {
+        return 'select ' + this.getPasswordFieldName() + ' from ' + this.getTableName() + ' where ' + this.getUsernameFieldName + '=' + username;
     },
-    getQueryInsert(req){
-        return 'CALL insertUser ('+user.email+','+user.password+','+user.name+','+user.type+','+user.phone+','+
-        user.career+','+user.street+','+user.username+')';
-    
+    getQueryInsert(user) {
+        return "insert into " + this.getTableName() +
+            " values (" + user.id + ",'" + user.email + "'," +
+            "'" + user.password + "','" + user.name + "','" + user.type + "')";
     }
-
-
 }
-
-
-
 
 module.exports = User;
