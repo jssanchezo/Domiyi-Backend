@@ -5,6 +5,12 @@ const Product = {
     getIdFieldName() {
         return 'id';
     },
+    getIdCompanyFieldName(){
+        return 'idCompany';
+    },
+    getIdStatusFieldName(){
+        return 'status';
+    },
     getNameFieldName() {
         return 'name';
     },
@@ -17,15 +23,19 @@ const Product = {
     getImageFieldName() {
         return 'image';
     },
+    getCategoryFieldName(){
+        return 'category';
+    },
     getUpdatedFieldName() {
         return 'updated';
     },
-    getStatusFieldName() {
-        return 'status';
-    },
+    
     getQueryInsert(product) {
-        return "insert into " + this.getTableName() + " values (" + product.id + "," + product.idCompany + ",'" + product.name + "','" +
-            product.description + "'," + product.price + ",'" + product.image + "','" + product.updated + "','" + product.status + "')";
+        return "insert into " + this.getTableName()+' ('+this.getIdCompanyFieldName()+','+this.getIdStatusFieldName()+','+this.getNameFieldName()+','+ 
+        this.getDescriptionFieldName()+','+this.getPriceFieldName()+','+this.getImageFieldName()+','+this.getCategoryFieldName()+','
+        +this.getUpdatedFieldName()+')'
+        + " values (" + product.idCompany+ ","+product.idStatus+",'" + product.name +"','" +
+            product.description + "'," + product.price + ",'" + product.image + "'," + product.category + ",now())";
     },
     getQuerySelectAll() {
         return 'select * from ' + this.getTableName();
