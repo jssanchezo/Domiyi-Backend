@@ -2,6 +2,6 @@ const Constants = {
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'usuarios'
+    database: 'domiyi_dbp'
 }
 module.exports = Constants;
