@@ -46,11 +46,6 @@ const User = {
     getQuerygetPasswordByUsername(username) {
         return 'select ' + this.getPasswordFieldName() + ' from ' + this.getTableName() + ' where ' + this.getUsernameFieldName + '=' + username;
     },
-    getQueryInsert(req) {
-        return 'CALL insertUser (' + user.email + ',' + user.password + ',' + user.name + ',' + user.type + ',' + user.phone + ',' +
-            user.career + ',' + user.street + ',' + user.username + ')';
-
-    },
     getQueryInsert(user) {
         return "insert into " + this.getTableName() +
             " values (" + user.id + ",'" + user.email + "'," +
