@@ -9,7 +9,7 @@ const Product = {
         return 'idCompany';
     },
     getIdStatusFieldName(){
-        return 'status';
+        return 'idStatus';
     },
     getNameFieldName() {
         return 'name';
