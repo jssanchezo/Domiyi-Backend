@@ -10,6 +10,9 @@ const ProductController = {
     async getById(req, res) {
         await ProductRepository.SelectById(req, res);
     },
+    async getByCategory(req, res) {//let us register products
+        await ProductRepository.SelectByCategory(req, res);
+    },
     async register(req, res) {//let us register products
         await ProductRepository.register(req, res);
     }
