@@ -1,16 +1,27 @@
 const express=require('express');
-
+const jwt=require("jsonwebtoken");
 
 const ProtectRoute = express.Router(); 
 ProtectRoute.use((req, res, next) => {
-    const token = req.headers['authorization'];
+    var token = req.headers['authorization'];
  
     if (token) {
-    next();//for execute the next callback
+        token = token.replace('Bearer ', '');
+
+    jwt.verify(token, 'password', function(err, user) {
+      if (err) {
+        res.status(401).send({
+          error: 'Token inválido'
+        })
+      } else {
+        next();//execute the next function en  router.get('/route',,-->>nextfuntiontoexecute<<--);
+      }
+    })
+   //for execute the next callback
     } else {
-      res.send({ 
-          mensaje: 'Token no proveída.' 
-      });
+        res.status(401).send({
+            error: "Es necesario el token de autenticación"
+          });
     }
  });
  module.exports=ProtectRoute;
