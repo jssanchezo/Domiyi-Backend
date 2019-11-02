@@ -25,14 +25,7 @@ const userRepository = {
     SelectByUsername(req,res,callback){//validate if the user has this password
         connection.query(UserTable.getQuerySelectByUsername(req.body.username),(err,rows,fields)=>{
             if(!err){
-                /*var results=new Object();
-                 results=JSON.parse(JSON.stringify(rows));
-                 //console.log(results[0].password==req.password);
-                 console.log(results[0].password);
-                 console.log(req.body.password);
-                 console.log(results[0].password==req.body.password);
-                return results[0].password==req.password;
-               */
+                
               var results;
               results=JSON.parse(JSON.stringify(rows));
               callback(results);

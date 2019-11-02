@@ -4,6 +4,6 @@ const ProtectRoute=require('../authentication/protectRouteMiddleware');
 //we match all routes with the functions wich it executes
 
 const ProductStatusController= require('../controllers/productsStatus.js');
-router.get('/productsStatus',ProductStatusController.getAll);
+router.get('/productsStatus',ProtectRoute,ProductStatusController.getAll);
 
 module.exports= router;

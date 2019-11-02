@@ -11,6 +11,9 @@ const authorizationServer={
     }else{
        return true;
     }
+    },
+    validateAdmin(){
+        
     }
 
 }
