@@ -8,6 +8,7 @@ const productsStatus_routes=require('./routes/productsStatus.js');
 
 
 const product_routes=require('./routes/product.js');
+const authentication_route=require('./authentication/authenticationRoute.js');
 const cors=require('cors');//solve problems with cors on requests
 
 
@@ -25,7 +26,7 @@ app.use(company_routes);
 app.use(productsStatus_routes);
 
 app.use(product_routes);
-
+app.use(authentication_route);
 //starting the server
     
 app.listen(app.get('port'),()=>{

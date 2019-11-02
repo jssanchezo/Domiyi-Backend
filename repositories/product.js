@@ -1,6 +1,3 @@
-
-
-
 const connection=require('../Database-Utilities/Connection.js');
 const ProductTable=require('../Database-Utilities/Products.js');
 const ProductRepository={

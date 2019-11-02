@@ -40,11 +40,11 @@ const User = {
         return 'select * from ' + this.getTableName() + ' where ' + this.getIdFieldName() + '=' + Id;
     },
     getQuerySelectByUsername(username) {
-        return 'select * from ' + this.getTableName() + ' where ' + this.getUsernameFieldName() + '=' + username;
+        return "select * from " + this.getTableName() + "  where "  + this.getUsernameFieldName() + "= '" + username+"'";
     }
     ,
     getQuerygetPasswordByUsername(username) {
-        return 'select ' + this.getPasswordFieldName() + ' from ' + this.getTableName() + ' where ' + this.getUsernameFieldName + '=' + username;
+        return "select "+ this.getPasswordFieldName() + " from " + this.getTableName() + " where " + this.getUsernameFieldName + "= '" + username+"'";
     },
     getQueryInsert(user) {
         return "insert into " + this.getTableName() +
