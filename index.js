@@ -32,5 +32,15 @@ app.use(authentication_route);
 app.listen(app.get('port'),()=>{
     console.log('server on port',app.get('port'));
 });
+/*const User=require('./models/User');
+User.sync({force:true}).then(()=>{
+return User.create({
+    email:'jj@hotmail.com',
+    password:'1111',
+    name:'juan',
+    type:'us'
+});
+});*/
+
 
     
