@@ -41,6 +41,14 @@ return User.create({
     type:'us'
 });
 });*/
+//const company=require('./models/Company');
+/*const Cat=require('./models/Models');
+const User=Cat.User;
+const Prueba=User.findAll({
+attributes:['id']
+});*/
+
+
 
 
     

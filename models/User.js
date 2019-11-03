@@ -3,7 +3,7 @@ const Model=Sequelize.Model;
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const User=sequelize.define('user',{
   id:{
-    type:Sequalize.INTEGER,
+    type:Sequelize.INTEGER,
     primaryKey:true 
   },
 email:{

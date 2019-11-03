@@ -3,7 +3,7 @@ const Model=Sequelize.Model;
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const TypeOffer=sequelize.define('typeOffer',{
   id:{
-    type:Sequalize.INTEGER,
+    type:Sequelize.INTEGER,
     primaryKey:true 
   },
 type:{

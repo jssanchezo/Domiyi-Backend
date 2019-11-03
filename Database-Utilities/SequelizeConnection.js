@@ -1,9 +1,9 @@
 const Sequelize=require('sequelize');
-const sequelize=new Sequelize('seq','root','',{
+const sequelize=new Sequelize('domiyi_dbp','root','',{
     host:'localhost',
     dialect:'mysql',
     pool:{
-        max: 30,
+        max: 5,
         min:0,
         require:30000,
         idle:10000

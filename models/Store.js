@@ -3,7 +3,7 @@ const Model=Sequelize.Model;
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Store=sequelize.define('store',{
   id:{
-    type:Sequalize.INTEGER,
+    type:Sequelize.INTEGER,
     primaryKey:true 
   },
 idCompany:{

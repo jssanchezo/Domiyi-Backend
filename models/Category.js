@@ -3,7 +3,7 @@ const Model=Sequelize.Model;
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Category=sequelize.define('category',{
   id:{
-    type:Sequalize.INTEGER,
+    type:Sequelize.INTEGER,
     primaryKey:true 
   },
 category:{

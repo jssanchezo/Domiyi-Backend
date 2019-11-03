@@ -1,9 +1,10 @@
 const Sequelize=require('sequelize');
 const Model=Sequelize.Model;
+const Company=require('./Company');
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Order=sequelize.define('order',{
   id:{
-    type:Sequalize.INTEGER,
+    type:Sequelize.INTEGER,
     primaryKey:true 
   },
 idCompany:{
@@ -19,7 +20,7 @@ idTransaction:{
     allowNull:false
 },
 date:{
-    type:Sequelize.date,
+    type:Sequelize.DATE,
     allowNull:false    
 },
 address:{
@@ -30,4 +31,5 @@ address:{
 ,{
     timestamps:false
 });
+
 module.exports=Order;
