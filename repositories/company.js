@@ -86,6 +86,15 @@ const CompanyRepository={
             }
         });
     },
+    SelectDeliveryCostByCompanyName(req,res){
+        connection.query(CompanyTable.getQueryDeliveryCostByCompanyName(req.body.name),(err,rows,fields)=>{
+            if(!err){
+                res.json(rows);
+            }else{
+                console.log(err);
+            }
+        });
+    }
 };
 
 module.exports=CompanyRepository;

@@ -11,5 +11,6 @@ router.get('/companies/company',CompanyController.getByCompany);
 router.get('/companies/idStatusByName',CompanyController.getIdStatusByName);
 router.get('/companies/adminByName',CompanyController.getAdminByName);
 router.get('/companies/imageByName',CompanyController.getImageByName);
+router.get('/companies/deliveryCostByName',CompanyController.getDeliveryCostByName);
 router.post('/company/register',CompanyController.register);
 module.exports= router;

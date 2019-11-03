@@ -27,6 +27,9 @@ const CompanyController={
     },
     async getImageByName(req,res){// filter image by company's name
         await CompanyRepository.SelectImageByCompanyName(req,res);
+    },
+    async getDeliveryCostByName(req,res){// filter delivery cost by company's name
+        await CompanyRepository.SelectDeliveryCostByCompanyName(req,res);
     }
 }
 module.exports=CompanyController;

@@ -21,6 +21,9 @@ const Company = {
     getIdAdmin() {
         return 'idAdmin'; // Return the Company's admin
     },
+    getDeliveryCost() {
+        return 'deliveryCost'; // Return the Company's admin
+    },
     //define querys for the table company wich return string for query method
 
     getQuerySelectByCompanyName(companyName){
@@ -34,7 +37,7 @@ const Company = {
     },//query for insert a company 
     getQueryInsert(company){
         return "insert into " +this.getTableName()+" values ("+company.id+","+company.idStatus+","+company.idAdmin+","+
-            "'" +company.name+ "','"+company.image+ "')";
+            "'" +company.name+ "','"+company.image+ "',"+company.deliveryCost+")";
     },
     getQueryCompanyByIdAdmin(idAdmin) {
         return 'select * from ' + this.getTableName() + ' where ' + this.getIdAdmin() + '=' + idAdmin;
@@ -50,6 +53,9 @@ const Company = {
     },
     getQueryImageByCompanyName(companyName){
         return 'select '+ this.getImage()  + ' from '+this.getTableName()+' where '+this.getName()+"= '"+companyName+"'";
+    },
+    getQueryDeliveryCostByCompanyName(companyName){
+        return 'select '+ this.getDeliveryCost()  + ' from '+this.getTableName()+' where '+this.getName()+"= '"+companyName+"'";
     }
 
 }
