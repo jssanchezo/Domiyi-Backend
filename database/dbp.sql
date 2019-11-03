@@ -9,7 +9,7 @@ USE `domiyi_dbp` ;
 DROP TABLE IF EXISTS `domiyi_dbp`.`companyStatus` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`companyStatus` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `status` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`id`));
 
@@ -20,11 +20,12 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`companyStatus` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`company` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`company` (
-  `id` BIGINT(20) NOT NULL,
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `idStatus` INT NOT NULL,
   `idAdmin` INT NOT NULL,
   `name` VARCHAR(80) NOT NULL,
   `image` VARCHAR(100) NOT NULL,
+  `deliveryCost` DOUBLE NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_company_table11`
     FOREIGN KEY (`idStatus`)
@@ -37,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`company` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`paymentMethod` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`paymentMethod` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `paymentMethod` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`));
 
@@ -48,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`paymentMethod` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`transactionStatus` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`transactionStatus` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `status` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`id`));
 
@@ -77,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`transaction` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`orderStatus` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`orderStatus` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `status` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`));
 
@@ -88,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`orderStatus` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`user` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `username` VARCHAR(15) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
@@ -132,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`orders` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`productStatus` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`productStatus` (
-  `id` BIGINT(20) NOT NULL,
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `status` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`id`));
 
@@ -143,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`productStatus` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`productCategory` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`productCategory` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `category` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`));
 
@@ -201,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`store` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`typeOffer` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`typeOffer` (
-  `id` BIGINT(20) NOT NULL,
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`id`));
 
@@ -212,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`typeOffer` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`offer` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`offer` (
-  `id` BIGINT(20) NOT NULL,
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `value` DOUBLE NOT NULL,
   `idType` BIGINT(20) NOT NULL,
   PRIMARY KEY (`id`),
@@ -227,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`offer` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`ProductOfferStatus` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`ProductOfferStatus` (
-  `id` BIGINT(20) NOT NULL,
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `status` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`));
 
@@ -238,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`ProductOfferStatus` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`productOffer` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`productOffer` (
-  `id` BIGINT(20) NOT NULL,
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `idProduct` BIGINT(20) NOT NULL,
   `idOffer` BIGINT(20) NOT NULL,
   `idStatus` BIGINT(20) NOT NULL,
@@ -260,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`productOffer` (
 DROP TABLE IF EXISTS `domiyi_dbp`.`detail` ;
 
 CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`detail` (
-  `id` BIGINT(20) NOT NULL,
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `idOrder` BIGINT(20) NOT NULL,
   `idProductOffer` BIGINT(20) NOT NULL,
   `quantity` INT NOT NULL,
