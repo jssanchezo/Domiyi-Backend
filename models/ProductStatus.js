@@ -11,6 +11,7 @@ status:{
     allowNull:false
 }
 },{
-    timestamps:false
+    timestamps:false,
+    freezeTableName: true
 });
 module.exports=ProductStatus;
