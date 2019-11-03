@@ -1,5 +1,7 @@
 const Sequelize=require('sequelize');
 const Model=Sequelize.Model;
+const Order=require('./Order');
+const ProductOffer=require('./ProductOffer');
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Detail=sequelize.define('detail',{
   id:{
@@ -8,15 +10,19 @@ const Detail=sequelize.define('detail',{
   },
 idOrder:{
     type:Sequelize.INTEGER,
-    allowNull:false
+    allowNull:false,
+    references:{
+        model:Order,
+        key:'id'
+        }
 },
-idProduct:{
+idProductOffer:{
     type:Sequelize.INTEGER,
-    allowNull:false
-},
-idOffer:{
-    type:Sequelize.INTEGER,
-    allowNull:false
+    allowNull:false,
+    references:{
+        model:ProductOffer,
+        key:'id'
+        }
 },
 quantity:{
     type:Sequelize.INTEGER,

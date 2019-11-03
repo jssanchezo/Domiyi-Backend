@@ -1,5 +1,6 @@
 const Sequelize=require('sequelize');
 const Model=Sequelize.Model;
+const Company=require('./Company');
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Store=sequelize.define('store',{
   id:{
@@ -8,7 +9,11 @@ const Store=sequelize.define('store',{
   },
 idCompany:{
     type:Sequelize.INTEGER,
-    allowNull:false
+    allowNull:false,
+    references:{
+        model:Company,
+        key:'id'
+        }
 },
 address:{
     type:Sequelize.STRING,

@@ -2,6 +2,8 @@ const Sequelize=require('sequelize');
 const Model=Sequelize.Model;
 const Product=require('./Product');
 const Order=require('./Order');
+const User=require('./User');
+const CompanyStatus=require('./CompanyStatus');
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Company=sequelize.define('company',{
   id:{
@@ -10,7 +12,11 @@ const Company=sequelize.define('company',{
   },
 idStatus:{
     type:Sequelize.INTEGER,
-    allowNull:false
+    allowNull:false,
+    references:{
+        model:CompanyStatus,
+        key:'id'
+        }
 },
 name:{
     type:Sequelize.STRING,
@@ -22,7 +28,11 @@ image:{
 },
 idAdmin:{
     type:Sequelize.INTEGER,
-    allowNull:false    
+    allowNull:false,
+    references:{
+        model:User,
+        key:'id'
+        }    
 },
 deliveryCost:{
     type:Sequelize.DOUBLE,

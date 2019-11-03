@@ -1,6 +1,7 @@
 const Sequelize=require('sequelize');
 const Model=Sequelize.Model;
 const sequelize=require('../Database-Utilities/SequelizeConnection');
+const TypeOffer=require('./typeOffer');
 const Offer=sequelize.define('offer',{
   id:{
     type:Sequelize.INTEGER,
@@ -12,7 +13,11 @@ value:{
 },
 idType:{
     type:Sequelize.INTEGER,
-    allowNull:false
+    allowNull:false,
+    references:{
+      model:TypeOffer,
+      key:'id'
+      }
 }
 },{
     timestamps:false,

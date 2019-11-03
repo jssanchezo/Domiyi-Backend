@@ -15,11 +15,11 @@ const Store=require('./Store');
 const Transaction=require('./Transaction');
 const TypeOffer=require('./typeOffer');
 const User=require('./User');
-
-Category.hasMany(Product,{foreigKey:'idCategory',sourceKey:'id'});
-Product.belongsTo(Category,{foreigKey:'idCategory',targetKey:'id'});
-Company.hasMany(Product,{foreigKey:'idCompany',sourceKey:'id'});
-Product.belongsTo(Company,{foreigKey:'idCompany',targetKey:'id'});
+/*
+//Category.hasMany(Product,{foreigKey:'idCategory',sourceKey:'id'});
+//Product.belongsTo(Category,{foreigKey:'idCategory',targetKey:'id',constraints:false});
+//Company.hasMany(Product,{foreigKey:'idCompany',sourceKey:'id'});
+//Product.belongsTo(Company,{foreigKey:'idCompany',targetKey:'id'});
 Company.hasMany(Order,{foreigKey:'idCompany',sourceKey:'id'});
 Order.belongsTo(Company,{foreigKey:'idCompany',targetKey:'id'});
 Company.hasMany(Store,{foreigKey:'idCompany',sourceKey:'id'});
@@ -32,14 +32,14 @@ Order.hasMany(Detail,{foreigKey:'idOrder',sourceKey:'id'});
 Detail.belongsTo(Order,{foreigKey:'idOrder',targetKey:'id'});
 PaymentMethod.hasMany(Transaction,{foreigKey:'idpaymentMethod',sourceKey:'id'});
 Transaction.belongsTo(PaymentMethod,{foreigKey:'idpaymentMethod',target:'id'});
-Product.hasMany(ProductOffer,{foreigKey:'idProduct',sourceKey:'id'});
-ProductOffer.belongsTo(Product,{foreigKey:'idProduct',targetKey:'id'});
+//Product.hasMany(ProductOffer,{foreigKey:'idProduct',sourceKey:'id'});
+//ProductOffer.belongsTo(Product,{foreigKey:'idProduct',targetKey:'id'});
 ProductOffer.hasMany(Detail,{foreigKey:'idProductOffer',sourceKey:'id'});
 Detail.belongsTo(ProductOffer,{foreigKey:'idProductOffer',targetKey:'id'});
 ProductOfferStatus.hasMany(ProductOffer,{foreigKey:'status',sourceKey:'id'});
 ProductOffer.belongsTo(ProductOfferStatus,{foreigKey:'status',targetKey:'id'});
-ProductStatus.hasMany(Product,{foreigKey:'idStatus',sourceKey:'id'});
-Product.belongsTo(ProductStatus,{foreigKey:'idStatus',targetKey:'id'});
+//ProductStatus.hasMany(Product,{foreigKey:'idStatus',sourceKey:'id'});
+//Product.belongsTo(ProductStatus,{foreigKey:'idStatus',targetKey:'id'});
 StatusTransaction.hasMany(Transaction,{foreigKey:'idStatus',sourceKey:'id'});
 Transaction.belongsTo(StatusTransaction,{foreigKey:'idStatus',targetKey:'id'});
 Transaction.hasMany(Order,{foreigKey:'idTransaction',sourceKey:'id'});
@@ -50,5 +50,5 @@ User.hasMany(Order,{foreigKey:'idUser',sourceKey:'id'});
 Order.belongsTo(User,{foreigKey:'idUser',targetKey:'id'});
 User.hasMany(Company,{foreigKey:'idAdmin',sourceKey:'id'});
 Company.belongsTo(User,{foreigKey:'idAdmin',targetKey:'id'});
-
+*/
 module.exports={Category,Store,User,Product};

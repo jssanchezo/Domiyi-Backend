@@ -1,7 +1,7 @@
 const Sequelize=require('sequelize');
 const Model=Sequelize.Model;
 const sequelize=require('../Database-Utilities/SequelizeConnection');
-const Category=sequelize.define('category',{
+const Category=sequelize.define('productcategory',{
   id:{
     type:Sequelize.INTEGER,
     primaryKey:true 
