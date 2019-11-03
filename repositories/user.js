@@ -1,17 +1,23 @@
 const express = require('express');
 const connection = require('../Database-Utilities/Connection.js');
 const UserTable = require('../Database-Utilities/Users.js');
+const User=require('../models/Models').User;
 const userRepository = {
 
-    SelectAll(req, res) {
+    async SelectAll(req, res) {
 //get all users registered
-        connection.query(UserTable.getQuerySelectAll(), (err, rows, fields) => {
+        /*connection.query(UserTable.getQuerySelectAll(), (err, rows, fields) => {
             if (!err) {
                 res.json(rows);
             } else {
                 console.log(err);
             }
-        });
+        });*/
+        const Prueba=await User.findAll({
+          
+            });
+            res.json(Prueba);
+            
     },
     register(req,res){//req body is an user in json format
         connection.query(UserTable.getQueryInsert(req.body),(err,rows,fields)=>{

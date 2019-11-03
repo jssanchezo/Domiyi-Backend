@@ -31,6 +31,7 @@ username:{
     allowNull:false
 }
 },{
-    timestamps:false
+    timestamps:false,
+    freezeTableName: true
 });
 module.exports=User;

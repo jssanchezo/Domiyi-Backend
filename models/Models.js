@@ -51,4 +51,4 @@ Order.belongsTo(User,{foreigKey:'idUser',targetKey:'id'});
 User.hasMany(Company,{foreigKey:'idAdmin',sourceKey:'id'});
 Company.belongsTo(User,{foreigKey:'idAdmin',targetKey:'id'});
 
-module.exports={Category,Store,User};
+module.exports={Category,Store,User,Product};
