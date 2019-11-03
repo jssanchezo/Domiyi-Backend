@@ -29,10 +29,8 @@ deliveryCost:{
     allowNull:false
 }
 },{
-    timestamps:false
+    timestamps:false,
+    freezeTableName: true
 });
-Company.hasMany(Product,{foreigKey:'idCompany',sourceKey:'id'});
-Company.hasMany(Order,{foreigKey:'idCompany',sourceKey:'id'});
-Order.belongsTo(Company,{foreigKey:'idCompany',sourceKey:'id'});
-Product.belongsTo(Company,{foreigKey:'idCompany',sourceKey:'id'});
+
 module.exports=Company;

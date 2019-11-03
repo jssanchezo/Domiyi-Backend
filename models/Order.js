@@ -29,7 +29,8 @@ address:{
 }
 }
 ,{
-    timestamps:false
+    timestamps:false,
+    freezeTableName: true
 });
 
 module.exports=Order;

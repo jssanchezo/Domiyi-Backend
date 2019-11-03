@@ -15,6 +15,7 @@ idType:{
     allowNull:false
 }
 },{
-    timestamps:false
+    timestamps:false,
+    freezeTableName: true//ASI NO SE CAMBIA EL NOMBRE DE LA TABLA A PLURAL AL SINCRONIZAR CON LA BD
 });
 module.exports=Offer;
