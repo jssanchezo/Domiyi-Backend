@@ -1,19 +1,11 @@
 const express =require('express');
 const connection = require('../Database-Utilities/Connection.js');
-const CompanyTable = require('../Database-Utilities/Companies.js');
+const CompanyTable = require('../Database-Utilities/Company.js');
 //methods for the routes 
 const CompanyRepository={
-    SelectByCategory(req,res){//here we implement a query with help of database utilites
-        connection.query(CompanyTable.getQueryCompaniesByCategory(req.body.category),(err,rows,fields)=>{
-            if(!err){
-                res.json(rows);
-            }else{
-                console.log(err);
-            }
-        });
-    },
-    SelectByAdminId(req,res){//select the company by Id
-        connection.query(CompanyTable.getQueryCompanyByIdAdmin(req.body.adminId),(err,rows,fields)=>{
+    //here we implement a query with help of database utilities
+    SelectByAdminId(req,res){ //select the company by Id
+        connection.query(CompanyTable.getQueryCompanyByIdAdmin(req.body.idAdmin),(err,rows,fields)=>{
             if(!err){
                 res.json(rows);//return json objects
             }else{
@@ -31,7 +23,7 @@ const CompanyRepository={
         });
     },
     SelectByCompany(req,res){
-        connection.query(CompanyTable.getQuerySelectByCompany(req.body.name),(err,rows,fields)=>{
+        connection.query(CompanyTable.getQuerySelectByCompanyName(req.body.name),(err,rows,fields)=>{
             if(!err){
                 res.json(rows);
             }else{
@@ -48,7 +40,7 @@ const CompanyRepository={
             }
         });
     },//let us register 
-    register(req,res){
+    Register(req,res){
         connection.query(CompanyTable.getQueryInsert(req.body),(err,rows,fields)=>{
 //the body is the object wich receive the methos of database utilities
             if(!err){
@@ -57,7 +49,43 @@ const CompanyRepository={
                 console.log(err);
             }
         });
-    }
+    },
+    SelectIdByName(req,res){
+        connection.query(CompanyTable.getQueryIdByCompanyName(req.body.name),(err,rows,fields)=>{
+            if(!err){
+                res.json(rows);
+            }else{
+                console.log(err);
+            }
+        });
+    },
+    SelectIdStatusByCompanyName(req,res){
+        connection.query(CompanyTable.getQueryIdStatusByCompanyName(req.body.name),(err,rows,fields)=>{
+            if(!err){
+                res.json(rows);
+            }else{
+                console.log(err);
+            }
+        });
+    },
+    SelectAdminByCompanyName(req,res){
+        connection.query(CompanyTable.getQueryAdminByCompanyName(req.body.name),(err,rows,fields)=>{
+            if(!err){
+                res.json(rows);
+            }else{
+                console.log(err);
+            }
+        });
+    },
+    SelectImageByCompanyName(req,res){
+        connection.query(CompanyTable.getQueryImageByCompanyName(req.body.name),(err,rows,fields)=>{
+            if(!err){
+                res.json(rows);
+            }else{
+                console.log(err);
+            }
+        });
+    },
 };
 
 module.exports=CompanyRepository;
