@@ -99,6 +99,10 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`user` (
   PRIMARY KEY (`id`));
 
 
+CREATE UNIQUE INDEX `username_UNIQUE` ON `domiyi_dbp`.`user` (`username`);
+
+CREATE UNIQUE INDEX `email_UNIQUE` ON `domiyi_dbp`.`user` (`email`);
+
 -- -----------------------------------------------------
 -- Table `domiyi_dbp`.`orders`
 -- -----------------------------------------------------
@@ -126,6 +130,8 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`orders` (
     FOREIGN KEY (`idUser`)
     REFERENCES `domiyi_dbp`.`user` (`id`));
 
+
+CREATE UNIQUE INDEX `idTransaction_UNIQUE` ON `domiyi_dbp`.`orders` (`idTransaction`);
 
 -- -----------------------------------------------------
 -- Table `domiyi_dbp`.`productStatus`
@@ -253,6 +259,12 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`productOffer` (
   CONSTRAINT `fk_productOffer_ProductOfferStatus1`
     FOREIGN KEY (`idStatus`)
     REFERENCES `domiyi_dbp`.`ProductOfferStatus` (`id`));
+
+
+CREATE UNIQUE INDEX `idProduct_UNIQUE` ON `domiyi_dbp`.`productOffer` (`idProduct`);
+
+CREATE UNIQUE INDEX `idOffer_UNIQUE` ON `domiyi_dbp`.`productOffer` (`idOffer`);
+
 
 
 -- -----------------------------------------------------
