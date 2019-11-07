@@ -22,7 +22,6 @@ app.use(express.json());//let us access to the info sended by json format
 ///Routes: use the routes
 app.use(users_routes);
 
-
 app.use(company_routes);
 app.use(companiesStatus_routes);
 app.use(productsStatus_routes);
