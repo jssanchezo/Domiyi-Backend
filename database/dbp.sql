@@ -287,3 +287,9 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`detail` (
     FOREIGN KEY (`idProductOffer`)
     REFERENCES `domiyi_dbp`.`productOffer` (`id`));
 
+-------------------------------Queries
+INSERT INTO `productcategory` (`id`, `category`) VALUES (NULL, 'ALIMENTOS'), (NULL, 'LICORES');
+INSERT INTO `companystatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'CERRADA');
+INSERT INTO `orderstatus` (`id`, `status`) VALUES (NULL, 'EN PROGRESO'), (NULL, 'CANCELADA');
+INSERT INTO `transactionstatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
+INSERT INTO `typeoffer` (`id`, `type`) VALUES (NULL, 'DESCUENTO');
