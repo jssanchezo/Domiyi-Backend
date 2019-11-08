@@ -290,9 +290,9 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`detail` (
 -- -----------------------------------------------------
 -- Queries
 -- -----------------------------------------------------
-INSERT INTO `productCategory` (`id`, `category`) VALUES (NULL, 'ALIMENTOS'), (NULL, 'LICORES');
-INSERT INTO `companystatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'CERRADA');
-INSERT INTO `orderstatus` (`id`, `status`) VALUES (NULL, 'EN PROGRESO'), (NULL, 'CANCELADA');
-INSERT INTO `transactionstatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
-INSERT INTO `typeoffer` (`id`, `type`) VALUES (NULL, 'DESCUENTO');
-INSERT INTO `productstatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
+INSERT INTO `domiyi_dbp`.`productCategory` (`id`, `category`) VALUES (NULL, 'ALIMENTOS'), (NULL, 'LICORES');
+INSERT INTO `domiyi_dbp`.`companystatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'CERRADA');
+INSERT INTO `domiyi_dbp`.`orderstatus` (`id`, `status`) VALUES (NULL, 'EN PROGRESO'), (NULL, 'CANCELADA');
+INSERT INTO `domiyi_dbp`.`transactionstatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
+INSERT INTO `domiyi_dbp`.`typeoffer` (`id`, `type`) VALUES (NULL, 'DESCUENTO');
+INSERT INTO `domiyi_dbp`.`productstatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
