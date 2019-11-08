@@ -4,7 +4,7 @@ const OrderController = {
     async getById(req, res) {
         
     },
-    async register(req, res) {//let us register products
+    async register(req, res) {//let us register orders
         await OrderRepository.register(req, res);
     }
 }
