@@ -30,4 +30,4 @@ const DetailRepository={
       }
     }
 }
-module.exports=OrderRepository;
+module.exports=DetailRepository;

@@ -6,7 +6,8 @@ const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Detail=sequelize.define('detail',{
   id:{
     type:Sequelize.INTEGER,
-    primaryKey:true 
+    primaryKey:true,
+    autoIncrement:true
   },
 idOrder:{
     type:Sequelize.INTEGER,

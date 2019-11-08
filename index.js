@@ -10,6 +10,7 @@ const order_routes=require('./routes/order')
 const category_routes=require('./routes/category');
 const product_routes=require('./routes/product.js');
 const authentication_route=require('./authentication/authenticationRoute.js');
+const detail_routes=require('./routes/detail');
 const cors=require('cors');//solve problems with cors on requests
 
 
@@ -29,6 +30,7 @@ app.use(category_routes);
 app.use(product_routes);
 app.use(authentication_route);
 app.use(order_routes);
+app.use(detail_routes);
 //starting the server
     
 app.listen(app.get('port'),()=>{

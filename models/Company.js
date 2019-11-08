@@ -8,7 +8,8 @@ const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Company=sequelize.define('company',{
   id:{
     type:Sequelize.INTEGER,
-    primaryKey:true 
+    primaryKey:true,
+    autoIncrement:true
   },
 idStatus:{
     type:Sequelize.INTEGER,

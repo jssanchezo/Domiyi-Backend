@@ -7,7 +7,8 @@ const sequelize=require('../Database-Utilities/SequelizeConnection');
 const ProductOffer=sequelize.define('product-offer',{
     id:{
         type:Sequelize.INTEGER,
-        primaryKey:true    
+        primaryKey:true,
+        autoIncrement:true  
     },
     idProduct:{
     type:Sequelize.INTEGER,
