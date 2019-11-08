@@ -5,7 +5,7 @@ const Company=require('./Company');
 const Transaction=require('./Transaction');
 const OrderStatus=require('./OrderStatus');
 const sequelize=require('../Database-Utilities/SequelizeConnection');
-const Order=sequelize.define('orders',{
+const Order=sequelize.define('order',{
   id:{
     type:Sequelize.INTEGER,
     primaryKey:true 
@@ -49,7 +49,8 @@ idStatus:{
     references:{
         model:OrderStatus,
         key:'id'
-        }
+        },
+    defaultValue:1
 }
 }
 ,{

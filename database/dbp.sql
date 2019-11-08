@@ -106,14 +106,14 @@ CREATE UNIQUE INDEX `email_UNIQUE` ON `domiyi_dbp`.`user` (`email`);
 -- -----------------------------------------------------
 -- Table `domiyi_dbp`.`orders`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `domiyi_dbp`.`orders` ;
+DROP TABLE IF EXISTS `domiyi_dbp`.`order` ;
 
-CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`orders` (
+CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`order` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `idStatus` INT NOT NULL,
   `idCompany` BIGINT(20) NOT NULL,
   `idUser` INT NOT NULL,
-  `idTransaction` BIGINT(20) NOT NULL,
+  `idTransaction` BIGINT(20) ,
   `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `address` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`),
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`orders` (
     REFERENCES `domiyi_dbp`.`user` (`id`));
 
 
-CREATE UNIQUE INDEX `idTransaction_UNIQUE` ON `domiyi_dbp`.`orders` (`idTransaction`);
+CREATE UNIQUE INDEX `idTransaction_UNIQUE` ON `domiyi_dbp`.`order` (`idTransaction`);
 
 -- -----------------------------------------------------
 -- Table `domiyi_dbp`.`productStatus`
@@ -282,13 +282,15 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`detail` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_detail_orders1`
     FOREIGN KEY (`idOrder`)
-    REFERENCES `domiyi_dbp`.`orders` (`id`),
+    REFERENCES `domiyi_dbp`.`order` (`id`),
   CONSTRAINT `fk_detail_productOffer1`
     FOREIGN KEY (`idProductOffer`)
     REFERENCES `domiyi_dbp`.`productOffer` (`id`));
 
--------------------------------Queries
-INSERT INTO `productcategory` (`id`, `category`) VALUES (NULL, 'ALIMENTOS'), (NULL, 'LICORES');
+-- -----------------------------------------------------
+-- Queries
+-- -----------------------------------------------------
+INSERT INTO `productCategory` (`id`, `category`) VALUES (NULL, 'ALIMENTOS'), (NULL, 'LICORES');
 INSERT INTO `companystatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'CERRADA');
 INSERT INTO `orderstatus` (`id`, `status`) VALUES (NULL, 'EN PROGRESO'), (NULL, 'CANCELADA');
 INSERT INTO `transactionstatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
