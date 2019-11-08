@@ -35,7 +35,8 @@ idTransaction:{
 },
 date:{
     type:Sequelize.DATE,
-    allowNull:false    
+    allowNull:false,
+    defaultValue:Sequelize.NOW   
 },
 address:{
     type:Sequelize.STRING,
