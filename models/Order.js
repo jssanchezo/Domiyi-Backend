@@ -3,6 +3,7 @@ const Model=Sequelize.Model;
 const User=require('./User');
 const Company=require('./Company');
 const Transaction=require('./Transaction');
+const OrderStatus=require('./OrderStatus');
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Order=sequelize.define('order',{
   id:{
@@ -35,11 +36,21 @@ idTransaction:{
 },
 date:{
     type:Sequelize.DATE,
-    allowNull:false    
+    allowNull:false,
+    defaultValue:Sequelize.NOW   
 },
 address:{
     type:Sequelize.STRING,
     allowNull:false
+},
+idStatus:{
+    type:Sequelize.INTEGER,
+    allowNull:true,
+    references:{
+        model:OrderStatus,
+        key:'id'
+        },
+    defaultValue:1
 }
 }
 ,{
