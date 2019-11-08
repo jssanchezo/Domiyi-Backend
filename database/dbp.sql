@@ -293,3 +293,4 @@ INSERT INTO `companystatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL,
 INSERT INTO `orderstatus` (`id`, `status`) VALUES (NULL, 'EN PROGRESO'), (NULL, 'CANCELADA');
 INSERT INTO `transactionstatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
 INSERT INTO `typeoffer` (`id`, `type`) VALUES (NULL, 'DESCUENTO');
+INSERT INTO `productstatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
