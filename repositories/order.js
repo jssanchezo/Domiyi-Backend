@@ -7,28 +7,7 @@ const OrderRepository={
     //
     //
     async SelectById(req, res) {
-        /*connection.query(ProductTable.getQuerySelectById(req.body.id),(err,rows,fields)=>{
-          if(!err){
-                res.json(rows);
-            }else{
-                console.log(err);
-            }
-
-        });*/
-        try{
-            product=await Product.findAll({
-                
-             where:{
-                 id:req.body.id
-
-                }
-            });
-            res.status(200).json(product);
-        }catch(e){
-            console.log(e);
-            res.status(400).send("se produjo un error");
-        }
-        
+      
         },
 
 
@@ -38,7 +17,7 @@ const OrderRepository={
         order=await Order.create({
             //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
             idCompany:req.body.idCompany,
-            idUser:req.body.name,
+            idUser:req.body.idUser,
             address:req.body.address
          
         });
