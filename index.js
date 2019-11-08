@@ -6,7 +6,7 @@ const users_routes=require('./routes/user.js');
 const company_routes=require('./routes/company.js');
 const productsStatus_routes=require('./routes/productsStatus.js');
 const companiesStatus_routes=require('./routes/companiesStatus.js');
-
+const order_routes=require('./routes/order')
 const category_routes=require('./routes/category');
 const product_routes=require('./routes/product.js');
 const authentication_route=require('./authentication/authenticationRoute.js');
@@ -28,6 +28,7 @@ app.use(productsStatus_routes);
 app.use(category_routes);
 app.use(product_routes);
 app.use(authentication_route);
+app.use(order_routes);
 //starting the server
     
 app.listen(app.get('port'),()=>{
