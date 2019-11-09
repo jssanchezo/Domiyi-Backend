@@ -6,8 +6,18 @@ const DetailRepository={
     
     //
     //
-    async SelectById(req, res) {
-      
+    async SelectByIdOrder(idOrder) {
+      try{
+        var details=await Detail.findAll({
+         attributes:['id'],
+          where:{
+            idOrder:idOrder
+          }
+        });
+        return details;
+      }catch(e){
+          return null;
+      }
         },
 
 

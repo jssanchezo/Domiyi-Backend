@@ -3,11 +3,11 @@ const router=express.Router();
 const ProtectRoute=require('../authentication/protectRouteMiddleware');
 //we match all routes with the functions wich it executes
 
-const DetailController= require('../controllers/detail');
+const ProductOfferController= require('../controllers/ProductOffer');
 
 
-router.post('/detail/register',DetailController.register);
-router.post('/detail/idsbyIdOrder',DetailController.getByIdOrder);
+router.post('/productOffer/IdsProductById',ProductOfferController.getIdsProductByIdsProductOffer);
+
 module.exports= router;
 
 

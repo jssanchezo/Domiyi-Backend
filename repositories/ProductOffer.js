@@ -4,8 +4,19 @@ const ProductOffer=require('../models/ProductOffer')
 const Sequelize=require('sequelize');
 const ProductOfferRepository={
     
-    
-    
+    async selectById(id){
+    try{    
+    const productsOffers=await ProductOffer.findAll({
+        where:{
+            id:id
+        }
+    }); 
+    return productsOffers;
+    }catch(e){
+    return null;
+    }
+    }
+    ,
     async SelectByIdProduct(id) {
            try{
             const productoffers=await ProductOffer.findAll({
@@ -53,6 +64,21 @@ const ProductOfferRepository={
           res.status(400).send("se produjo un error");
           console.log(e);
       }
+    },
+    async selectIdProductByIds(ids){
+        try{
+            ids=await ProductOffer.findAll({
+                attributes:['idProduct'],
+                where:{
+                    id:{
+                        [Sequelize.Op.in]:ids
+                    }
+                }
+            });
+            return ids;
+        }catch(e){
+            return null;
+        }
     }
 }
 module.exports=ProductOfferRepository;

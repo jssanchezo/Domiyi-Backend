@@ -3,6 +3,8 @@ const ProductTable=require('../Database-Utilities/Products.js');
 const Product=require('../models/Models').Product;
 const Sequelize=require('sequelize');
 const ProductRepository={
+    
+    
     async SelectAll(req,res){//we obtain all products
         /*connection.query(ProductTable.getQuerySelectAll(),(err,rows,fields)=>{
             if(!err){
@@ -45,7 +47,7 @@ const ProductRepository={
         }
     },
     //
-    async SelectById(req, res) {
+    async SelectById(idProduct) {
         /*connection.query(ProductTable.getQuerySelectById(req.body.id),(err,rows,fields)=>{
           if(!err){
                 res.json(rows);
@@ -58,14 +60,13 @@ const ProductRepository={
             product=await Product.findAll({
                 
              where:{
-                 id:req.body.id
+                 id:idProduct
 
                 }
             });
-            res.status(200).json(product);
+            return product;
         }catch(e){
-            console.log(e);
-            res.status(400).send("se produjo un error");
+            return null;
         }
         
         },
