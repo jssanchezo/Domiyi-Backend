@@ -65,7 +65,7 @@ const ProductOfferRepository={
           console.log(e);
       }
     },
-    async selectIdProductByIds(ids){
+    async selectIdsProductByIds(ids){
         try{
             ids=await ProductOffer.findAll({
                 attributes:['idProduct'],
