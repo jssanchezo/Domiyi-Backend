@@ -5,6 +5,7 @@ const Detail =require('../repositories/detail');
 const ProductOfferController = {
     async getIdsProductByIdsProductOffer(req,res){
         var ids=[];
+        console.log(req.body);
         req.body.ids.map(st=>{
             ids.push(st.id);
         });
@@ -16,5 +17,6 @@ const ProductOfferController = {
         }
         
     }
+    
 }
 module.exports = ProductOfferController;

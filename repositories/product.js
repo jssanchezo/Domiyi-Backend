@@ -94,6 +94,9 @@ const ProductRepository={
           //console.log(e);
           return null;
       }
+    },
+    async selectAllByIds(ids){
+        console.log(ids);
     }
 }
 module.exports=ProductRepository;

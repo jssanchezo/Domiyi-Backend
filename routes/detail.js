@@ -7,7 +7,7 @@ const DetailController= require('../controllers/detail');
 
 
 router.post('/detail/register',DetailController.register);
-router.post('/detail/idsbyIdOrder',DetailController.getByIdOrder);
+router.post('/detail/byIdOrder',DetailController.getByOrderId);
 module.exports= router;
 
 

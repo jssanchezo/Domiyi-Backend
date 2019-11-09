@@ -10,8 +10,7 @@ const DetailController = {
        if(details==null){
            res.status(400).send("hubo un error");
        }else{
-         
-           
+                   
         res.status(200).json(details);
        }
        
@@ -19,6 +18,16 @@ const DetailController = {
     },
     async register(req, res) {//let us register products
         await DetailRepository.register(req, res);
+    },
+    async getByOrderId(req,res){
+        const details=await DetailRepository.SelectByOrderId(req.body.idOrder);
+       if(details==null){
+           res.status(400).send("esta vacio");
+       }else{
+                   
+        res.status(200).json(details);
+       }
+       
     }
 }
 module.exports = DetailController;

@@ -22,7 +22,31 @@ const ProductController = {
         
     },
  getByIdOrder(req,res){
-        Detail.SelectByIdOrder(req.body.idOrder).then()
+        var idsproductOffer=Detail.SelectIdsProductOfferByIdOrder(req.body.idOrder).then(()=>{
+            var idsProductsOfferArray=[];
+           
+            idsproductOffer.map(obj=>{
+                idsProductsOfferArray.push(obj.idProductOffer);
+            });
+            var idsProducts=ProducOfferRepository.selectIdsProductByIds(idsProductsOfferArray).then(()=>{
+                var idsProductsArray=[];
+                idsProducts.map(obj=>{
+                    idsProductsArray.push(obj.idsProduct);
+                })
+                var products=ProductRepository.selectAllByIds(idsProductsArray).then(()=>{
+                    res.status(200).json(products);
+                }).catch((e)=>{
+                    console.log(e);
+                    res.status(400).send("hubo un error");
+                })
+            }).catch((e)=>{
+                console.log(e);
+                res.status(400).send("hubo un error");
+            })
+        }).catch((e)=>{
+            console.log(e);
+            res.status(400).send("hubo un error");
+        })
 }
     ,
     async register(req, res) {//let us register products

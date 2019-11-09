@@ -2,19 +2,21 @@ const connection=require('../Database-Utilities/Connection.js');
 const ProductTable=require('../Database-Utilities/Products.js');
 const Detail=require('../models/Detail');
 const Sequelize=require('sequelize');
+const sequelize=require('../Database-Utilities/SequelizeConnection');
+
 const DetailRepository={
     
     //
     //
-    async SelectByIdOrder(idOrder) {
+    async SelectIdsProductOfferByIdOrder(idOrder) {
       try{
-        var details=await Detail.findAll({
-         attributes:['id'],
+        var idsProductOffer=await Detail.findAll({
+         attributes:['idProductOffer'],
           where:{
             idOrder:idOrder
           }
         });
-        return details;
+        return idsProductOffer;
       }catch(e){
           return null;
       }
@@ -38,6 +40,19 @@ const DetailRepository={
           res.status(400).send("se produjo un error");
           console.log(e);
       }
+    },
+  async  SelectByOrderId(idOrder){
+    try{
+      const details= await sequelize.query("SELECT * FROM productAndDetail where idOrder="+idOrder,{ type: Sequelize.QueryTypes.SELECT})
+      
+      return details;
+    }catch(e){
+      
+return null;
+    }
+      
+    
+      
     }
 }
 module.exports=DetailRepository;
