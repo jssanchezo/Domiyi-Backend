@@ -73,14 +73,6 @@ const ProductRepository={
 
 
     async register(req,res){
-        /*connection.query(ProductTable.getQueryInsert(req.body),(err,rows,fields)=>{
-
-            if(!err){
-                res.json(rows);
-            }else{
-                console.log(err);
-            }
-        });*/
       try{
         product=await Product.create({
             //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
@@ -93,10 +85,13 @@ const ProductRepository={
             idCategory:req.body.idCategory
          
         });
-        res.status(201).json(product);
+        //res.status(201).json(product);
+        return product
+        
       }catch(e){
-          res.status(400).send("se produjo un error");
-          console.log(e);
+          //res.status(400).send("se produjo un error");
+          //console.log(e);
+          return null;
       }
     }
 }

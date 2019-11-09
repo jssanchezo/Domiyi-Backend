@@ -4,7 +4,7 @@ const Product=require('./Product');
 const Offer=require('./Offer');
 const ProductOfferStatus=require('./ProductOfferStatus');
 const sequelize=require('../Database-Utilities/SequelizeConnection');
-const ProductOffer=sequelize.define('product-offer',{
+const ProductOffer=sequelize.define('productoffer',{
     id:{
         type:Sequelize.INTEGER,
         primaryKey:true,
@@ -26,7 +26,7 @@ idOffer:{
         key:'id'
         }
 },
-status:{
+idStatus:{
     type:Sequelize.INTEGER,
     allowNull:false,
     references:{

@@ -296,3 +296,5 @@ INSERT INTO `domiyi_dbp`.`orderstatus` (`id`, `status`) VALUES (NULL, 'EN PROGRE
 INSERT INTO `domiyi_dbp`.`transactionstatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
 INSERT INTO `domiyi_dbp`.`typeoffer` (`id`, `type`) VALUES (NULL, 'DESCUENTO');
 INSERT INTO `domiyi_dbp`.`productstatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
+INSERT INTO `domiyi_dbp`.`productofferstatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
+INSERT INTO `domiyi_dbp`.`offer` (`id`, `value`, `idType`) VALUES (NULL, '0', '1');
