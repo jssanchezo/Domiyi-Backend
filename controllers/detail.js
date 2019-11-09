@@ -24,7 +24,7 @@ const DetailController = {
        if(details==null){
            res.status(400).send("esta vacio");
        }else{
-                   
+              
         res.status(200).json(details);
        }
        
