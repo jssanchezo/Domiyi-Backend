@@ -1,5 +1,6 @@
 const DetailRepository = require('../repositories/detail');
 const AuthorizationServer=require('../authentication/authorizationServer');
+const ProductOfferRepository=require('../repositories/ProductOffer');
 const DetailController = {
     
     async getByIdOrder(req, res) {

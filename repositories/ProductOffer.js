@@ -6,8 +6,18 @@ const ProductOfferRepository={
     
     
     
-    async SelectById(req, res) {
-        
+    async SelectByIdProduct(id) {
+           try{
+            const productoffers=await ProductOffer.findAll({
+                where:{
+                    [Sequelize.Op.and]:[{idProduct:id},{idStatus:1}]
+                }
+            });
+            return productoffers;
+           }catch(e){
+            return null;
+           }
+
         
         },
 

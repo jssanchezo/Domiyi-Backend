@@ -17,7 +17,7 @@ const DetailRepository={
         detail=await Detail.create({
             //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
             idOrder:req.body.idOrder,
-            idProducOffer:req.body.idProductOffer,
+            idProductOffer:req.body.idProductOffer,
             quantity:req.body.quantity,
             observation:req.body.observation,
             unitprice:req.body.unitprice            
