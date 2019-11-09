@@ -45,6 +45,39 @@ const ProductRepository={
         }
     },
     //
+    async SelectByIdCompany(req, res) {
+        try{
+            product=await Product.findAll({
+                
+             where:{
+                 idCompany:req.body.idCompany
+
+                }
+            });
+            res.status(200).json(product);
+        }catch(e){
+            console.log(e);
+            res.status(400).send("se produjo un error");
+        }
+        
+        },
+    async SelectCompanyByCategory(req, res) {
+        try{
+            product=await Product.findAll({
+                attributes: ['idCompany'],
+                where:{
+                    idCategory:req.body.idCategory
+
+                }
+            });
+            res.status(200).json(product);
+        }catch(e){
+            console.log(e);
+            res.status(400).send("se produjo un error");
+        }
+
+    },
+    //
     async SelectById(req, res) {
         /*connection.query(ProductTable.getQuerySelectById(req.body.id),(err,rows,fields)=>{
           if(!err){
@@ -56,9 +89,9 @@ const ProductRepository={
         });*/
         try{
             product=await Product.findAll({
-                
-             where:{
-                 id:req.body.id
+
+                where:{
+                    id:req.body.id
 
                 }
             });
@@ -67,8 +100,8 @@ const ProductRepository={
             console.log(e);
             res.status(400).send("se produjo un error");
         }
-        
-        },
+
+    },
 
 
 

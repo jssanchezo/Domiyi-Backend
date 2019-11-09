@@ -1,9 +1,10 @@
-const express=require('express');
-const router=express.Router();
-const ProtectRoute=require('../authentication/protectRouteMiddleware');
+const express = require('express');
+const router = express.Router();
+const ProtectRoute = require('../authentication/protectRouteMiddleware');
 //we match all routes with the functions wich it executes
 
-const CategoryController= require('../controllers/category.js');
+const CategoryController = require('../controllers/category.js');
 
-router.get('/categories',CategoryController.getAll);
-module.exports= router;
+router.get('/categories', CategoryController.getAll);
+router.get('/categories/id', CategoryController.getById);
+module.exports = router;

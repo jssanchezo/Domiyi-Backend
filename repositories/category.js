@@ -13,6 +13,19 @@ const CategoryRepository={
             console.log(e);
         }
             
+    },
+    async  SelectById(req,res){
+        try{
+            const categories= await Category.findAll({
+                where:{
+                    id:req.body.id
+                }
+            });
+            res.status(200).json(categories);
+        }catch(e){
+            res.status(400).send("hubo un error");
+        }
+
     }
 }
 module.exports=CategoryRepository;

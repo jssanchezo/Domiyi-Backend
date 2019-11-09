@@ -6,9 +6,12 @@ const ProtectRoute=require('../authentication/protectRouteMiddleware');
 const ProductController= require('../controllers/product.js');
 
 router.get('/products',ProductController.getAll);
-router.get('/products/price',ProductController.getByPrice) ;
 router.get('/products/id',ProductController.getById) ;
+router.get('/products/price',ProductController.getByPrice);
+router.get('/products/idcompany',ProductController.getByIdCompany);
+router.get('/products/idCompanybycategory',ProductController.getCompanyByCategory);
 router.post('/product/register',ProductController.register);
+
 module.exports= router;
 
 

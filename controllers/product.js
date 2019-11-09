@@ -16,7 +16,18 @@ const ProductController = {
             //    error:"no hay token"
             //});
        // }
-        
+
+    },
+
+    async getByIdCompany(req, res) {
+
+        await ProductRepository.SelectByIdCompany(req, res);
+
+    },
+    async getCompanyByCategory(req, res) {
+
+        await ProductRepository.SelectCompanyByCategory(req, res);
+
     },
     async register(req, res) {//let us register products
         await ProductRepository.register(req, res);
