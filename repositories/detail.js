@@ -42,7 +42,7 @@ const DetailRepository = {
     },
     async SelectByOrderId(idOrder) {
         try {
-            const details = await sequelize.query("SELECT * FROM productAndDetail where idOrder=" + idOrder, {type: Sequelize.QueryTypes.SELECT})
+            const details = await sequelize.query("SELECT * FROM productAndDetails where idOrder=" + idOrder, {type: Sequelize.QueryTypes.SELECT})
 
             return details;
         } catch (e) {
