@@ -33,6 +33,7 @@ const ProductRepository={
             }
         });*/
         try{
+
             const products=await Product.findAll({
                 where:{
                     price:{

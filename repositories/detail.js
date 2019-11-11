@@ -49,8 +49,47 @@ const DetailRepository = {
 
             return null;
         }
+    },
 
+    async UpdateIdOrder(req, res) {
+        //UPDATE `table_name` SET `column_name` = `new_value' [WHERE condition];
+        //update detail set idOrder = idOrderNumber  where idOrder = arrayOrder[index];
+        arrayIds = req.body.arrayIds;
+        idOrderNumber = req.body.idOrder;
+        for (index = 0; index < arrayIds.length; index++) {
+            try {
+                Detail.update({
+                    idOrder: idOrderNumber,
+                }, {
+                    where: {
+                        id: {
+                            [Sequelize.Op.in]: arrayIds
+                        }
+                    }
+                });
+                if (index = arrayIds.length - 1) {
+                    res.status(201).send("Update successfull")
+                }
+            }
+                // UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
+            catch (e) {
+                res.status(400).send("se produjo un error");
+            }
+        }
 
     }
 }
 module.exports = DetailRepository;
+
+/*
+Post.update({
+  updatedAt: null,
+}, {
+  where: {
+    deletedAt: {
+      [Op.ne]: null
+    }
+  }
+});
+// UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
+ */
