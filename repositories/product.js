@@ -63,14 +63,14 @@ const ProductRepository={
         },
     async SelectCompanyByCategory(req, res) {
         try{
-            product=await Product.findAll({
+            company=await Product.findAll({
                 attributes: ['idCompany'],
                 where:{
                     idCategory:req.body.idCategory
 
                 }
             });
-            res.status(200).json(product);
+            res.status(200).json(company);
         }catch(e){
             console.log(e);
             res.status(400).send("se produjo un error");
