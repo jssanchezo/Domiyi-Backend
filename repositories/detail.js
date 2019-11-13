@@ -56,9 +56,30 @@ const DetailRepository = {
         //update detail set idOrder = idOrderNumber  where idOrder = arrayOrder[index];
         arrayIds = req.body.arrayIds;
         idOrderNumber = req.body.idOrder;
+        try {
+            await Detail.update({
+                idOrder: idOrderNumber,
+            }, {
+                where: {
+                    id: {
+                        [Sequelize.Op.in]: arrayIds
+                    }
+                }
+            });
+
+            res.status(201).send("Update successfull")
+
+        }
+            // UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
+        catch (e) {
+
+            res.status(400).send("se produjo un error");
+        }
+
+        /*
         for (index = 0; index < arrayIds.length; index++) {
             try {
-                Detail.update({
+                await Detail.update({
                     idOrder: idOrderNumber,
                 }, {
                     where: {
@@ -76,6 +97,8 @@ const DetailRepository = {
                 res.status(400).send("se produjo un error");
             }
         }
+
+         */
 
     }
 }
