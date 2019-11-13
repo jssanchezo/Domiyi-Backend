@@ -291,10 +291,28 @@ CREATE TABLE IF NOT EXISTS `domiyi_dbp`.`detail` (
 -- Queries
 -- -----------------------------------------------------
 INSERT INTO `domiyi_dbp`.`productCategory` (`id`, `category`) VALUES (NULL, 'ALIMENTOS'), (NULL, 'LICORES');
-INSERT INTO `domiyi_dbp`.`companystatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'CERRADA');
-INSERT INTO `domiyi_dbp`.`orderstatus` (`id`, `status`) VALUES (NULL, 'EN PROGRESO'), (NULL, 'CANCELADA');
-INSERT INTO `domiyi_dbp`.`transactionstatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
-INSERT INTO `domiyi_dbp`.`typeoffer` (`id`, `type`) VALUES (NULL, 'DESCUENTO');
-INSERT INTO `domiyi_dbp`.`productstatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
-INSERT INTO `domiyi_dbp`.`productofferstatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
+INSERT INTO `domiyi_dbp`.`companyStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'CERRADA');
+INSERT INTO `domiyi_dbp`.`orderStatus` (`id`, `status`) VALUES (NULL, 'EN PROGRESO'), (NULL, 'CANCELADA');
+INSERT INTO `domiyi_dbp`.`transactionStatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
+INSERT INTO `domiyi_dbp`.`typeOffer` (`id`, `type`) VALUES (NULL, 'DESCUENTO');
+INSERT INTO `domiyi_dbp`.`productStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
+INSERT INTO `domiyi_dbp`.`productOfferStatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
 INSERT INTO `domiyi_dbp`.`offer` (`id`, `value`, `idType`) VALUES (NULL, '0', '1');
+
+
+CREATE or replace VIEW productAndDetails AS SELECT
+d.id,
+pro.id as pro_id,
+pro.name,
+pro.description,
+pro.price,
+pro.image,
+pro.updated,
+p.idOffer,
+d.quantity,
+d.observation,
+d.unitPrice,
+d.idOrder
+FROM `domiyi_dbp`.`productOffer` p INNER JOIN `domiyi_dbp`.`detail` d on p.id = d.idProductOffer inner join `domiyi_dbp`.`product` pro on pro.id = p.idProduct
+;
+
