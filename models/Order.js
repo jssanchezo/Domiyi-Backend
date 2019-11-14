@@ -8,7 +8,8 @@ const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Order=sequelize.define('order',{
   id:{
     type:Sequelize.INTEGER,
-    primaryKey:true 
+    primaryKey:true,
+    autoIncrement:true
   },
 idCompany:{
     type:Sequelize.INTEGER,

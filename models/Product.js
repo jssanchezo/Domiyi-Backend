@@ -8,7 +8,8 @@ const ProductStatus=require('../models/ProductStatus');
 const Product=sequelize.define('product',{
   id:{
     type:Sequelize.INTEGER,
-    primaryKey:true 
+    primaryKey:true,
+    autoIncrement:true 
   },
 idCompany:{
     type:Sequelize.INTEGER,

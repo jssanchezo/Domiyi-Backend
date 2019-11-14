@@ -4,7 +4,8 @@ const sequelize=require('../Database-Utilities/SequelizeConnection');
 const OrderStatus=sequelize.define('orderStatus',{
   id:{
     type:Sequelize.INTEGER,
-    primaryKey:true 
+    primaryKey:true,
+    autoIncrement:true
   },
 status:{
     type:Sequelize.STRING,

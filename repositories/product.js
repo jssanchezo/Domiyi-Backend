@@ -3,6 +3,8 @@ const ProductTable=require('../Database-Utilities/Products.js');
 const Product=require('../models/Models').Product;
 const Sequelize=require('sequelize');
 const ProductRepository={
+    
+    
     async SelectAll(req,res){//we obtain all products
         /*connection.query(ProductTable.getQuerySelectAll(),(err,rows,fields)=>{
             if(!err){
@@ -31,6 +33,7 @@ const ProductRepository={
             }
         });*/
         try{
+
             const products=await Product.findAll({
                 where:{
                     price:{
@@ -45,7 +48,7 @@ const ProductRepository={
         }
     },
     //
-    async SelectById(req, res) {
+    async SelectById(idProduct) {
         /*connection.query(ProductTable.getQuerySelectById(req.body.id),(err,rows,fields)=>{
           if(!err){
                 res.json(rows);
@@ -58,14 +61,13 @@ const ProductRepository={
             product=await Product.findAll({
                 
              where:{
-                 id:req.body.id
+                 id:idProduct
 
                 }
             });
-            res.status(200).json(product);
+            return product;
         }catch(e){
-            console.log(e);
-            res.status(400).send("se produjo un error");
+            return null;
         }
         
         },
@@ -73,14 +75,6 @@ const ProductRepository={
 
 
     async register(req,res){
-        /*connection.query(ProductTable.getQueryInsert(req.body),(err,rows,fields)=>{
-
-            if(!err){
-                res.json(rows);
-            }else{
-                console.log(err);
-            }
-        });*/
       try{
         product=await Product.create({
             //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
@@ -93,11 +87,17 @@ const ProductRepository={
             idCategory:req.body.idCategory
          
         });
-        res.status(201).json(product);
+        //res.status(201).json(product);
+        return product
+        
       }catch(e){
-          res.status(400).send("se produjo un error");
-          console.log(e);
+          //res.status(400).send("se produjo un error");
+          //console.log(e);
+          return null;
       }
+    },
+    async selectAllByIds(ids){
+        console.log(ids);
     }
 }
 module.exports=ProductRepository;
