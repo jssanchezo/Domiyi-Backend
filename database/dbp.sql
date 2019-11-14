@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS `bqgr2cirsykagvh6xt6c` ;
+
+CREATE DATABASE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`;
 USE `bqgr2cirsykagvh6xt6c` ;
 
 -- -----------------------------------------------------
@@ -24,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`company` (
   `image` VARCHAR(100) NOT NULL,
   `deliveryCost` DOUBLE NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_company_table11`
+  CONSTRAINT `fk_company_companyStatus1`
     FOREIGN KEY (`idStatus`)
     REFERENCES `bqgr2cirsykagvh6xt6c`.`companyStatus` (`id`));
 
@@ -153,6 +156,7 @@ DROP TABLE IF EXISTS `bqgr2cirsykagvh6xt6c`.`productCategory` ;
 CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`productCategory` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `category` VARCHAR(20) NOT NULL,
+  `linkimg` VARCHAR(20),
   PRIMARY KEY (`id`));
 
 
@@ -230,11 +234,11 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`offer` (
 
 
 -- -----------------------------------------------------
--- Table `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus`
+-- Table `bqgr2cirsykagvh6xt6c`.`productOfferStatus`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` ;
+DROP TABLE IF EXISTS `bqgr2cirsykagvh6xt6c`.`productOfferStatus` ;
 
-CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (
+CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`productOfferStatus` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `status` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`));
@@ -257,14 +261,13 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`productOffer` (
   CONSTRAINT `fk_offer_has_product_product1`
     FOREIGN KEY (`idProduct`)
     REFERENCES `bqgr2cirsykagvh6xt6c`.`product` (`id`),
-  CONSTRAINT `fk_productOffer_ProductOfferStatus1`
+  CONSTRAINT `fk_productOffer_productOfferStatus1`
     FOREIGN KEY (`idStatus`)
-    REFERENCES `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (`id`));
+    REFERENCES `bqgr2cirsykagvh6xt6c`.`productOfferStatus` (`id`));
 
 
-CREATE UNIQUE INDEX `idProduct_UNIQUE` ON `bqgr2cirsykagvh6xt6c`.`productOffer` (`idProduct`);
+ALTER TABLE `bqgr2cirsykagvh6xt6c`.`productOffer` ADD UNIQUE `unique_index`(`idProduct`, `idOffer`);
 
-CREATE UNIQUE INDEX `idOffer_UNIQUE` ON `bqgr2cirsykagvh6xt6c`.`productOffer` (`idOffer`);
 
 
 
@@ -294,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`detail` (
 -- Queries
 -- -----------------------------------------------------
 
-INSERT INTO `bqgr2cirsykagvh6xt6c`.`productCategory` (`id`, `category`) VALUES (NULL, 'ALIMENTOS'), (NULL, 'LICORES');
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`productCategory` (`id`, `category`, `linkimg`) VALUES (NULL, 'ALIMENTOS',NULL), (NULL, 'LICORES',NULL);
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`companyStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'CERRADA');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`orderStatus` (`id`, `status`) VALUES (NULL, 'EN PROGRESO'), (NULL, 'CANCELADA');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`transactionStatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
@@ -321,4 +324,3 @@ d.idOrder
 
 FROM `bqgr2cirsykagvh6xt6c`.`productOffer` p INNER JOIN `bqgr2cirsykagvh6xt6c`.`detail` d on p.id = d.idProductOffer inner join `bqgr2cirsykagvh6xt6c`.`product` pro on pro.id = p.idProduct
 ;
-
