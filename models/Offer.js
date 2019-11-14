@@ -5,7 +5,8 @@ const TypeOffer=require('./typeOffer');
 const Offer=sequelize.define('offer',{
   id:{
     type:Sequelize.INTEGER,
-    primaryKey:true 
+    primaryKey:true,
+    autoIncrement:true 
   },
 value:{
     type:Sequelize.DOUBLE,

@@ -103,9 +103,11 @@ CREATE UNIQUE INDEX `email_UNIQUE` ON `bqgr2cirsykagvh6xt6c`.`user` (`email`);
 -- -----------------------------------------------------
 -- Table `bqgr2cirsykagvh6xt6c`.`orders`
 -- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `bqgr2cirsykagvh6xt6c`.`order` ;
 
 CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`order` (
+
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `idStatus` INT NOT NULL,
   `idCompany` BIGINT(20) NOT NULL,
@@ -128,7 +130,9 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`order` (
     REFERENCES `bqgr2cirsykagvh6xt6c`.`user` (`id`));
 
 
+
 CREATE UNIQUE INDEX `idTransaction_UNIQUE` ON `bqgr2cirsykagvh6xt6c`.`order` (`idTransaction`);
+
 
 -- -----------------------------------------------------
 -- Table `bqgr2cirsykagvh6xt6c`.`productStatus`
@@ -279,14 +283,17 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`detail` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_detail_orders1`
     FOREIGN KEY (`idOrder`)
+
     REFERENCES `bqgr2cirsykagvh6xt6c`.`order` (`id`),
   CONSTRAINT `fk_detail_productOffer1`
     FOREIGN KEY (`idProductOffer`)
     REFERENCES `bqgr2cirsykagvh6xt6c`.`productOffer` (`id`));
 
+
 -- -----------------------------------------------------
 -- Queries
 -- -----------------------------------------------------
+
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`productCategory` (`id`, `category`) VALUES (NULL, 'ALIMENTOS'), (NULL, 'LICORES');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`companyStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'CERRADA');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`orderStatus` (`id`, `status`) VALUES (NULL, 'EN PROGRESO'), (NULL, 'CANCELADA');
@@ -295,6 +302,7 @@ INSERT INTO `bqgr2cirsykagvh6xt6c`.`typeOffer` (`id`, `type`) VALUES (NULL, 'DES
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`productStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`productOfferStatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`offer` (`id`, `value`, `idType`) VALUES (NULL, '0', '1');
+
 
 
 CREATE or replace VIEW productAndDetails AS SELECT
@@ -310,5 +318,7 @@ d.quantity,
 d.observation,
 d.unitPrice,
 d.idOrder
+
 FROM `bqgr2cirsykagvh6xt6c`.`productOffer` p INNER JOIN `bqgr2cirsykagvh6xt6c`.`detail` d on p.id = d.idProductOffer inner join `bqgr2cirsykagvh6xt6c`.`product` pro on pro.id = p.idProduct
 ;
+

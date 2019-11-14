@@ -4,7 +4,8 @@ const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Category=sequelize.define('productCategory',{
   id:{
     type:Sequelize.INTEGER,
-    primaryKey:true 
+    primaryKey:true,
+    autoIncrement:true 
   },
 category:{
     type:Sequelize.STRING,
