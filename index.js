@@ -1,6 +1,6 @@
 const express=require('express');
 //para tests
-var request =require('supertest');
+//var request =require('supertest');
 //
 
 const app=express();
