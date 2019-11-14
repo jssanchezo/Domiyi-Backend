@@ -55,7 +55,7 @@ function createApp() {
 }
  */
 
-
+/*
 
 describe('Is email correct', function() {
 
@@ -96,7 +96,7 @@ describe('Its not a valid password', function() {
 
 
 
-
+*/
 
 
 
