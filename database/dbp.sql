@@ -319,4 +319,20 @@ d.idOrder
 
 FROM `bqgr2cirsykagvh6xt6c`.`productOffer` p INNER JOIN `bqgr2cirsykagvh6xt6c`.`detail` d on p.id = d.idProductOffer inner join `bqgr2cirsykagvh6xt6c`.`product` pro on pro.id = p.idProduct
 ;
-
+CREATE or replace VIEW ordersByCompany AS SELECT
+c.id as idCompany,
+c.idAdmin,
+d.idOrder,
+prod.name,
+d.quantity,
+d.observation,
+d.unitPrice,
+o.address,
+o.date,
+oS.status
+FROM `bqgr2cirsykagvh6xt6c`.`order` o INNER JOIN `bqgr2cirsykagvh6xt6c`.`company` c on o.idCompany = c.id inner join
+`bqgr2cirsykagvh6xt6c`.`detail` d on o.id = d.idOrder inner join
+`bqgr2cirsykagvh6xt6c`.`productOffer` pro on d.idProductOffer = pro.id inner join
+`bqgr2cirsykagvh6xt6c`.`product` prod on pro.idProduct = prod.id inner join
+`bqgr2cirsykagvh6xt6c`.`orderStatus` oS on o.idStatus = oS.id order by o.date
+;
