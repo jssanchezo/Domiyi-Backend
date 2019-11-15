@@ -11,6 +11,8 @@ const ProductOfferRepository={
             id:id
         }
     }); 
+    var finalProductOffers=JSON.parse(JSON.stringify(productsOffers));
+    console.log("finals"+finalProductOffers);
     return productsOffers;
     }catch(e){
     return null;
@@ -24,7 +26,10 @@ const ProductOfferRepository={
                     [Sequelize.Op.and]:[{idProduct:id},{idStatus:1}]
                 }
             });
-            return productoffers;
+            var finalProductOffers=JSON.parse(JSON.stringify(productoffers[0]));
+    //console.log("finals"+JSON.parse(JSON.stringify(productoffers[0])));
+            //return productoffers;
+            return finalProductOffers;
            }catch(e){
             return null;
            }
@@ -35,7 +40,7 @@ const ProductOfferRepository={
 
   async registerDefault(product){
     try{
-        productoffer=await ProductOffer.create({
+       var  productoffer=await ProductOffer.create({
             //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
             idProduct:product.id,
             idOffer:1,
@@ -43,10 +48,13 @@ const ProductOfferRepository={
             
          
         });
-        
-        return productoffer;
+        var finalproductoffer=JSON.parse(JSON.stringify(productoffer));
+        console.log(finalproductoffer);
+        return productoffer[0];
       }catch(e){
         console.log(e);
+          return null;
+        
       }
   },
     async register(req,res){

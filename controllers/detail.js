@@ -17,7 +17,24 @@ const DetailController = {
 
     },
     async register(req, res) {//let us register products
-        await DetailRepository.register(req, res);
+        
+       var productoffer=await ProductOfferRepository.SelectByIdProduct(req.body.idProduct);
+        if(productoffer==null){
+         productoffer=await ProductOfferRepository.registerDefault({id:req.body.idProduct});
+        }
+        
+        
+       // var addedProductOffer=JSON.parse(JSON.stringify(productoffer));
+        //console.log("id"+addedProductOffer[0].id);
+        
+        req.body.idProductOffer=productoffer.id;
+        const detail=await DetailRepository.register(req, res);
+        if(detail==null){
+            res.status(400).send("hubo un error");
+
+        }else{
+            res.status(201).json(detail);
+        }
     },
     async getByOrderId(req, res) {
         const details = await DetailRepository.SelectByOrderId(req.body.idOrder);

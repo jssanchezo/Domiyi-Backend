@@ -73,7 +73,7 @@ const ProductRepository = {
 
     async register(req, res) {
         try {
-            product = await Product.create({
+          const  product = await Product.create({
                 //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
                 idCompany: req.body.idCompany,
                 name: req.body.name,
@@ -85,6 +85,7 @@ const ProductRepository = {
 
             });
             //res.status(201).json(product);
+            console.log(product);
             return product
 
         } catch (e) {
