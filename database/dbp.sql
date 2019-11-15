@@ -156,7 +156,7 @@ DROP TABLE IF EXISTS `bqgr2cirsykagvh6xt6c`.`productCategory` ;
 CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`productCategory` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `category` VARCHAR(20) NOT NULL,
-  `linkimg` VARCHAR(20),
+  `linkimg` VARCHAR(350),
   PRIMARY KEY (`id`));
 
 
@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`product` (
   `name` VARCHAR(40) NOT NULL,
   `description` VARCHAR(200) NULL DEFAULT NULL,
   `price` DOUBLE NOT NULL,
-  `image` VARCHAR(120) NOT NULL,
+  `image` VARCHAR(350) NOT NULL,
   `updated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_companies`
