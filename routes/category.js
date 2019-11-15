@@ -5,5 +5,5 @@ const ProtectRoute=require('../authentication/protectRouteMiddleware');
 
 const CategoryController= require('../controllers/category.js');
 
-router.get('/categories',ProtectRoute,CategoryController.getAll);
+router.get('/categories',CategoryController.getAll);
 module.exports= router;

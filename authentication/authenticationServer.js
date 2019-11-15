@@ -14,11 +14,13 @@ const AuthenticatioServer={
              
            }
            var tokenData={
-               id:User.id
+               idUser:User[0].id
               }
               var token=jwt.sign(tokenData,'password',{
                   expiresIn:60*5*25
               });
+              
+              
               res.send({
                   token
               });
