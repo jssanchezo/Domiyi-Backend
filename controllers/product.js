@@ -60,7 +60,7 @@ const ProductController = {
                 res.status(201).json(product);
 
             } catch (e) {
-
+             console.log(e);
             }
 
 

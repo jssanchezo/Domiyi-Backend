@@ -6,7 +6,7 @@ const ProtectRoute=require('../authentication/protectRouteMiddleware');
 const ProductOfferController= require('../controllers/ProductOffer');
 
 
-router.post('/productOffer/IdsProductById',ProductOfferController.getIdsProductByIdsProductOffer);
+router.post('/productOffer/IdsProductById',ProtectRoute,ProductOfferController.getIdsProductByIdsProductOffer);
 
 module.exports= router;
 

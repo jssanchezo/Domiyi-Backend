@@ -262,9 +262,7 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`productOffer` (
     REFERENCES `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (`id`));
 
 
-CREATE UNIQUE INDEX `idProduct_UNIQUE` ON `bqgr2cirsykagvh6xt6c`.`productOffer` (`idProduct`);
 
-CREATE UNIQUE INDEX `idOffer_UNIQUE` ON `bqgr2cirsykagvh6xt6c`.`productOffer` (`idOffer`);
 
 
 
@@ -302,9 +300,9 @@ INSERT INTO `bqgr2cirsykagvh6xt6c`.`typeOffer` (`id`, `type`) VALUES (NULL, 'DES
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`productStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`offer` (`id`, `value`, `idType`) VALUES (NULL, '0', '1');
-
-
-
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`user` (`id`, `name`, `username`, `email`, `password`, `phone`, `address`) VALUES (NULL, 'Andres Sanchez', 'afsanchezsa', 'afsanchezsa@unal.edu.co', '1234', '3005557777', 'cra 15 a 45 b 67');
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`company` (`id`, `idStatus`, `idAdmin`, `name`, `image`, `deliveryCost`) VALUES (NULL, '1', '1', 'Domiyi', 'https://desayunostony.com/images/servicio-a-domicilio-01.jpg', '2000');
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`order` (`id`, `idStatus`, `idCompany`, `idUser`, `idTransaction`, `date`, `address`) VALUES (NULL, '1', '1', '1', NULL, current_timestamp(), 'cra 15 a 45 b 67');
 CREATE or replace VIEW productAndDetails AS SELECT
 d.id,
 pro.id as pro_id,
