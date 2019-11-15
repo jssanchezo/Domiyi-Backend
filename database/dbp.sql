@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`company` (
   `idStatus` INT NOT NULL,
   `idAdmin` INT NOT NULL,
   `name` VARCHAR(80) NOT NULL,
-  `image` VARCHAR(100) NOT NULL,
+  `image` VARCHAR(350) NOT NULL,
   `deliveryCost` DOUBLE NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_company_companyStatus1`
