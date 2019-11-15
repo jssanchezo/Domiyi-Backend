@@ -300,7 +300,7 @@ INSERT INTO `bqgr2cirsykagvh6xt6c`.`orderStatus` (`id`, `status`) VALUES (NULL, 
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`transactionStatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`typeOffer` (`id`, `type`) VALUES (NULL, 'DESCUENTO');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`productStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
-INSERT INTO `bqgr2cirsykagvh6xt6c`.`productOfferStatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`offer` (`id`, `value`, `idType`) VALUES (NULL, '0', '1');
 
 
