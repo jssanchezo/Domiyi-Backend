@@ -10,6 +10,10 @@ const Category=sequelize.define('productCategory',{
 category:{
     type:Sequelize.STRING,
     allowNull:false
+},
+linkimg:{
+    type:Sequelize.STRING,
+    allowNull:false
 }
 },{
     timestamps:false,
