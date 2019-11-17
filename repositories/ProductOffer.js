@@ -12,7 +12,7 @@ const ProductOfferRepository={
         }
     }); 
     var finalProductOffers=JSON.parse(JSON.stringify(productsOffers));
-    console.log("finals"+finalProductOffers);
+    
     return productsOffers;
     }catch(e){
     return null;
@@ -49,7 +49,7 @@ const ProductOfferRepository={
          
         });
         var finalproductoffer=JSON.parse(JSON.stringify(productoffer));
-        console.log(finalproductoffer);
+        
         return productoffer[0];
       }catch(e){
         console.log(e);
