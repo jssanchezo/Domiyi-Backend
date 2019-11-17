@@ -21,7 +21,7 @@ const UserController = require('./controllers/user.js');
 const CompanyController = require('./controllers/company.js');
 const ProductController = require('./controllers/product');
 const UserAddress = require('./controllers/user.js');
-const CompanyDeliveryCost = require('/controllers/company')
+const CompanyDeliveryCost = require('./controllers/company');
 
 
 //settings
@@ -191,7 +191,7 @@ describe('Comprobar campos de inicio de sesion no esten vacios', function() {
     it('for "" Should return  false', function(done) {
         var correctUserName = UserController.isValidUserName("");
 
-        if (correctUserName) {
+        if (!correctUserName) {
             // If the behavior is as expected, call done with no argument.
             done();
         } else {
@@ -222,9 +222,9 @@ describe('The phone  is non negative', function() {
 
 });
 describe('Its not a valid Address',function () {
-    it('Should return true or false',function (done) {
+    it('Should return true',function (done) {
         var correctAddress = UserAddress.validateAddress("Calle 53 Nro 27-34")
-        if(!correctAddress){
+        if(correctAddress){
             done();
         }else{
             done(new Error("Not sure what's happened"))
@@ -234,7 +234,7 @@ describe('Its not a valid Address',function () {
 describe('Its not a valid DeliveryCost',function(){
     it('Should return true or false', function (done) {
         var correctDeliveryCost = CompanyDeliveryCost.validateDeliveryCost("5000")
-        if(!correctDeliveryCost){
+        if(correctDeliveryCost){
             done();
         }else{
             done(new Error("Not sure what's happened"))
@@ -244,8 +244,8 @@ describe('Its not a valid DeliveryCost',function(){
 
 
 
-*/
 
+*/
 
 /*const User=require('./models/User');
 User.sync({force:true}).then(()=>{
