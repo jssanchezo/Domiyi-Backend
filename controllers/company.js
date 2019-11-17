@@ -1,7 +1,8 @@
 const CompanyRepository=require('../repositories/company.js');
-
+const AuthorizationServer=require('../authentication/authorizationServer');
 const CompanyController={
     async getAll(req,res){
+        AuthorizationServer.validateUser(req,res);
         await CompanyRepository.SelectAll(req,res);
     },
     async getById(req, res){//apply filter by Id
@@ -18,6 +19,26 @@ const CompanyController={
     },
     async register(req,res){//register a new company
         await CompanyRepository.register(req,res);
+    },
+    validateIdAdmin(idAdmin){
+        if (idAdmin >= 1){
+            return true;
+        }else {
+            return false;
+        }
+    },
+    validateTypeIdAdmin(idAdmin){
+        if (typeof idAdmin== 'number'){
+            return true;
+        }else {
+            return false;
+        }
+    },    validateDeliveryCost(DeliveryCost){
+        if(DeliveryCost >= 0){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
 module.exports=CompanyController;
