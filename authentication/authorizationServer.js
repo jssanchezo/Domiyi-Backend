@@ -2,7 +2,7 @@ const jwt=require('jsonwebtoken');
 
 const authorizationServer={
     validateUser(req,res){
-    var token=req.headers['authorization'];
+    var token=req.body.token;
     if(!token){
         /*res.status(401).send({
         error:"No se cuenta con token para la autenticacion"

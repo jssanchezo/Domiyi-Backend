@@ -3,7 +3,7 @@ const jwt=require("jsonwebtoken");
 
 const ProtectRoute = express.Router(); 
 ProtectRoute.use((req, res, next) => {
-    var token = req.headers['authorization'];
+    var token = req.body.token;
   
 
 
