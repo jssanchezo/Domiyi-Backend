@@ -35,6 +35,12 @@ const UserController = { //in controller offer methods form  handle the database
             return true
         }
         return false;
-    }
-}
+    },
+    validateAddress(address){
+        if(address.length>5){
+            return true;
+        }else{
+            return false;
+        }
+    }}
 module.exports = UserController;
