@@ -56,7 +56,7 @@ function createApp() {
 }
  */
 
-
+/*
 
 describe('Is email correct', function() {
 
@@ -185,7 +185,7 @@ describe('The description is not empty', function() {
 
 });
 
-
+*/
 
 
 
