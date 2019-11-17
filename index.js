@@ -19,7 +19,7 @@ const productOffer_routes=require('./routes/ProductOffer');
 const cors=require('cors');//solve problems with cors on requests
 const UserController = require('./controllers/user.js');
 const CompanyController = require('./controllers/company.js');
-
+const ProductController=require('./controllers/product');
 
 //settings
 app.set('port',process.env.PORT||3000); //set the number port for listen request
@@ -61,7 +61,7 @@ function createApp() {
 describe('Is email correct', function() {
 
     // This is the name of the test
-    it('Should return true or false', function(done) {
+    it('for test@gmail.com is validEmail must return true ', function(done) {
         var correctEmail = UserController.validateEmail("test@gmail.com")
             if (correctEmail) {
                 // If the behavior is as expected, call done with no argument.
@@ -79,7 +79,7 @@ describe('Is email correct', function() {
 describe('Its not a valid password', function() {
 
     // This is the name of the test
-    it('Should return true or false', function(done) {
+    it('For 12 must return false', function(done) {
         var correctPassword = UserController.validatePassword("12")
         if (!correctPassword) {
             // If the behavior is as expected, call done with no argument.
@@ -99,7 +99,7 @@ describe('Its not a valid password', function() {
 describe('Is IdAdmin number correct', function() {
 
     // This is the name of the test
-    it('Should return true or false', function(done) {
+    it('for idadmin 1 must return true', function(done) {
         var correctIdAdmin = CompanyController.validateIdAdmin(1)
         if (correctIdAdmin) {
             // If the behavior is as expected, call done with no argument.
@@ -120,7 +120,7 @@ describe('Is IdAdmin number correct', function() {
 describe('Is IdAdmin type correct', function() {
 
     // This is the name of the test
-    it('Should return true or false', function(done) {
+    it('for 134 must return true ', function(done) {
         var correctTypeIdAdmin = CompanyController.validateTypeIdAdmin(134)
         if (correctTypeIdAdmin) {
             // If the behavior is as expected, call done with no argument.
@@ -139,14 +139,53 @@ describe('Is IdAdmin type correct', function() {
 
 
 
+
+
+
+
+
+describe('The price  is  valid', function() {
+
+    // This is the name of the test
+    it('for price -4567 Should return  false', function(done) {
+        var correctPrice = ProductController.isValidPrice(-4567);
+        
+        if (!correctPrice) {
+            // If the behavior is as expected, call done with no argument.
+            done();
+        }
+
+        else {
+            // Otherwise, call done with an error.
+            done(new Error("Not sure what's happened."));
+        }
+        // We want this test to pass.
+    });
+
+
+});
+describe('The description is not empty', function() {
+
+    // This is the name of the test
+    it('for "" Should return  false', function(done) {
+        var correctDescription = ProductController.isValidDescription("");
+        
+        if (!correctDescription) {
+            // If the behavior is as expected, call done with no argument.
+            done();
+        }
+
+        else {
+            // Otherwise, call done with an error.
+            done(new Error("Not sure what's happened."));
+        }
+        // We want this test to pass.
+    });
+
+
+});
+
 */
-
-
-
-
-
-
-
 
 
 

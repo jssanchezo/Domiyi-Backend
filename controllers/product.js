@@ -46,9 +46,22 @@ const ProductController = {
             console.log(e);
             res.status(400).send("hubo un error");
         })
+    } ,
+     isValidPrice(price){
+        if(price!=null && price>0){
+            return true 
+        }
+        return false;
     }
-    ,
+    , isValidDescription(description){
+        if (description.length>0){
+            return true;
+        }else {
+            return false;
+        }
+    },
     async register(req, res) {//let us register products
+      
         var product;
         product = await ProductRepository.register(req, res);
         if (product == null) {
@@ -65,7 +78,8 @@ const ProductController = {
 
 
         }
-    }
+     
+    }   
 
 
 }
