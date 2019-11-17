@@ -29,7 +29,7 @@ const OrderRepository = {
     },
     async selectOrderByAdmin(idAdmin) {
         try {
-            console.log("idAdmin:"+idAdmin);
+            
             const orders = await sequelize.query("SELECT * FROM ordersByCompany where idAdmin =" + idAdmin, {type: Sequelize.QueryTypes.SELECT})
 
             return orders;
