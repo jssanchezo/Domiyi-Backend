@@ -1,6 +1,7 @@
 const Sequelize=require('sequelize');
-const sequelize=new Sequelize('bqgr2cirsykagvh6xt6c','ulbibdyyhb9hs6ek','bhKPJzV8AvuovJI3OW4y',{
-    host:'bqgr2cirsykagvh6xt6c-mysql.services.clever-cloud.com',
+const DB=require('./DatabaseDefinition')
+const sequelize=new Sequelize(DB.database,DB.user,DB.password,{
+    host:DB.host,
     dialect:'mysql',
     pool:{
         max: 5,

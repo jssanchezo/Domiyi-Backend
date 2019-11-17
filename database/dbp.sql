@@ -266,7 +266,9 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`productOffer` (
     REFERENCES `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (`id`));
 
 
+
 ALTER TABLE `bqgr2cirsykagvh6xt6c`.`productOffer` ADD UNIQUE `unique_index`(`idProduct`, `idOffer`);
+
 
 
 
@@ -305,9 +307,9 @@ INSERT INTO `bqgr2cirsykagvh6xt6c`.`typeOffer` (`id`, `type`) VALUES (NULL, 'DES
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`productStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`offer` (`id`, `value`, `idType`) VALUES (NULL, '0', '1');
-
-
-
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`user` (`id`, `name`, `username`, `email`, `password`, `phone`, `address`) VALUES (NULL, 'Andres Sanchez', 'afsanchezsa', 'afsanchezsa@unal.edu.co', '1234', '3005557777', 'cra 15 a 45 b 67');
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`company` (`id`, `idStatus`, `idAdmin`, `name`, `image`, `deliveryCost`) VALUES (NULL, '1', '1', 'Domiyi', 'https://desayunostony.com/images/servicio-a-domicilio-01.jpg', '2000');
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`order` (`id`, `idStatus`, `idCompany`, `idUser`, `idTransaction`, `date`, `address`) VALUES (NULL, '1', '1', '1', NULL, current_timestamp(), 'cra 15 a 45 b 67');
 CREATE or replace VIEW productAndDetails AS SELECT
 d.id,
 pro.id as pro_id,
@@ -324,6 +326,7 @@ d.idOrder
 
 FROM `bqgr2cirsykagvh6xt6c`.`productOffer` p INNER JOIN `bqgr2cirsykagvh6xt6c`.`detail` d on p.id = d.idProductOffer inner join `bqgr2cirsykagvh6xt6c`.`product` pro on pro.id = p.idProduct
 ;
+
 
 
 CREATE or replace VIEW companyByCategory AS SELECT
@@ -363,3 +366,22 @@ INSERT INTO `product` (`id`, `idCompany`, `idStatus`, `idCategory`, `name`, `des
 
 INSERT INTO `product` (`id`, `idCompany`, `idStatus`, `idCategory`, `name`, `description`, `price`, `image`, `updated`)
  VALUES ('6', '3', '1', '1', 'Empanada', 'muy grande', '10000', 'https://hips.hearstapps.com/hmg-prod/images/delish-190807-empanadas-0105-landscape-pf-1566245422.jpg', current_timestamp());
+
+CREATE or replace VIEW ordersByCompany AS SELECT
+c.id as idCompany,
+c.idAdmin,
+d.idOrder,
+prod.name,
+d.quantity,
+d.observation,
+d.unitPrice,
+o.address,
+o.date,
+oS.status
+FROM `bqgr2cirsykagvh6xt6c`.`order` o INNER JOIN `bqgr2cirsykagvh6xt6c`.`company` c on o.idCompany = c.id inner join
+`bqgr2cirsykagvh6xt6c`.`detail` d on o.id = d.idOrder inner join
+`bqgr2cirsykagvh6xt6c`.`productOffer` pro on d.idProductOffer = pro.id inner join
+`bqgr2cirsykagvh6xt6c`.`product` prod on pro.idProduct = prod.id inner join
+`bqgr2cirsykagvh6xt6c`.`orderStatus` oS on o.idStatus = oS.id order by o.date
+;
+

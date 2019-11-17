@@ -34,10 +34,11 @@ const DetailRepository = {
                 unitPrice: req.body.unitPrice
 
             });
-            res.status(201).json(detail);
+           return detail;
         } catch (e) {
-            res.status(400).send("se produjo un error");
+            
             console.log(e);
+            return null;
         }
     },
     async SelectByOrderId(idOrder) {
