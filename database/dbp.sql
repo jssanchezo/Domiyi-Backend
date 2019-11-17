@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS `bqgr2cirsykagvh6xt6c` ;
+
+CREATE DATABASE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`;
 USE `bqgr2cirsykagvh6xt6c` ;
 
 -- -----------------------------------------------------
@@ -21,10 +24,10 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`company` (
   `idStatus` INT NOT NULL,
   `idAdmin` INT NOT NULL,
   `name` VARCHAR(80) NOT NULL,
-  `image` VARCHAR(100) NOT NULL,
+  `image` VARCHAR(350) NOT NULL,
   `deliveryCost` DOUBLE NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_company_table11`
+  CONSTRAINT `fk_company_companyStatus1`
     FOREIGN KEY (`idStatus`)
     REFERENCES `bqgr2cirsykagvh6xt6c`.`companyStatus` (`id`));
 
@@ -153,6 +156,7 @@ DROP TABLE IF EXISTS `bqgr2cirsykagvh6xt6c`.`productCategory` ;
 CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`productCategory` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `category` VARCHAR(20) NOT NULL,
+  `linkimg` VARCHAR(350),
   PRIMARY KEY (`id`));
 
 
@@ -169,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`product` (
   `name` VARCHAR(40) NOT NULL,
   `description` VARCHAR(200) NULL DEFAULT NULL,
   `price` DOUBLE NOT NULL,
-  `image` VARCHAR(120) NOT NULL,
+  `image` VARCHAR(350) NOT NULL,
   `updated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_companies`
@@ -263,6 +267,9 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`productOffer` (
 
 
 
+ALTER TABLE `bqgr2cirsykagvh6xt6c`.`productOffer` ADD UNIQUE `unique_index`(`idProduct`, `idOffer`);
+
+
 
 
 
@@ -292,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`detail` (
 -- Queries
 -- -----------------------------------------------------
 
-INSERT INTO `bqgr2cirsykagvh6xt6c`.`productCategory` (`id`, `category`) VALUES (NULL, 'ALIMENTOS'), (NULL, 'LICORES');
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`productCategory` (`id`, `category`, `linkimg`) VALUES (NULL, 'ALIMENTOS',NULL), (NULL, 'LICORES',NULL);
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`companyStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'CERRADA');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`orderStatus` (`id`, `status`) VALUES (NULL, 'EN PROGRESO'), (NULL, 'CANCELADA');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`transactionStatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
@@ -319,6 +326,19 @@ d.idOrder
 
 FROM `bqgr2cirsykagvh6xt6c`.`productOffer` p INNER JOIN `bqgr2cirsykagvh6xt6c`.`detail` d on p.id = d.idProductOffer inner join `bqgr2cirsykagvh6xt6c`.`product` pro on pro.id = p.idProduct
 ;
+
+
+
+CREATE or replace VIEW companyByCategory AS SELECT
+pro.id,
+pro.idCompany,
+pro.idCategory,
+com.name,
+com.image
+FROM `bqgr2cirsykagvh6xt6c`.`product` pro
+INNER JOIN `bqgr2cirsykagvh6xt6c`.`company` com ON pro.idCompany = com.id;
+
+
 CREATE or replace VIEW ordersByCompany AS SELECT
 c.id as idCompany,
 c.idAdmin,
@@ -336,3 +356,4 @@ FROM `bqgr2cirsykagvh6xt6c`.`order` o INNER JOIN `bqgr2cirsykagvh6xt6c`.`company
 `bqgr2cirsykagvh6xt6c`.`product` prod on pro.idProduct = prod.id inner join
 `bqgr2cirsykagvh6xt6c`.`orderStatus` oS on o.idStatus = oS.id order by o.date
 ;
+
