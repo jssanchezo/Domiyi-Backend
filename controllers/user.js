@@ -21,7 +21,21 @@ const UserController={//in controller offer methods form  handle the database to
         }else {
             return false;
         }
+    },    validatePhone(phone){
+        if(Number.isInteger(phone)){
+            return true;
+        }else{
+            return false;
+        }
+    },
+    validateAddress(address){
+        if(address.length>5){
+            return true;
+        }else{
+            return false;
+        }
     }
-    
-}
+
+
+    }
 module.exports=UserController;

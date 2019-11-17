@@ -20,6 +20,8 @@ const cors=require('cors');//solve problems with cors on requests
 const UserController = require('./controllers/user.js');
 const CompanyController = require('./controllers/company.js');
 const ProductController=require('./controllers/product');
+const UserPhone = require('./controllers/user.js');
+const UserAddress = require('./controllers/user.js');
 
 //settings
 app.set('port',process.env.PORT||3000); //set the number port for listen request
@@ -217,7 +219,31 @@ const Prueba=User.findAll({
 attributes:['id']
 });*/
 
+/*
+describe('Its not a valid phone', function () {
+    it('Should return true or false', function(done){
+        var correctPhone = UserPhone.validatePhone( 300157633)
+        if(!correctPhone){
+            done();
+        }else{
+            done(new Error("Not sure what's happened."))
+        }
+    })
+})
 
 
 
+Describe('Its not a valid Address',function () {
+    it('Should return true or false',function (done) {
+        var correctAddress = UserAddress.validateAddress("Calle 53 Nro 27-34")
+        if(!correctAddress){
+            done();
+        }else{
+            done(new Error("Not sure what's happened"))
+        }
+    })
+})
+
+
+*/
     
