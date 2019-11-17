@@ -2,7 +2,7 @@ const express=require('express');
 //para tests
 //var request =require('supertest');
 //
-
+const PromoFactory=require('./POJO/PromoFactory');
 const app=express();
 const users_routes=require('./routes/user.js');
 
@@ -40,7 +40,16 @@ app.use(order_routes);
 app.use(detail_routes);
 app.use(productOffer_routes);
 //starting the server
-    
+promofactory=new PromoFactory();
+var discount=promofactory.getPromo("discount");
+var product={price:3000};
+product=discount.applyPromo(product,0.1);
+console.log("price with 10 % off is "+product.price);
+var minuspricepromo=promofactory.getPromo("minusprice");
+product=minuspricepromo.applyPromo(product,1000);
+console.log("price with 10 % off is and minus 1000 is "+product.price);
+
+  //  prom.applyPromo();
 app.listen(app.get('port'),()=>{
     console.log('server on port',app.get('port'));
 });
