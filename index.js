@@ -20,6 +20,9 @@ const cors = require('cors'); //solve problems with cors on requests
 const UserController = require('./controllers/user.js');
 const CompanyController = require('./controllers/company.js');
 const ProductController = require('./controllers/product');
+const UserAddress = require('./controllers/user.js');
+const CompanyDeliveryCost = require('/controllers/company')
+
 
 //settings
 app.set('port', process.env.PORT || 3000); //set the number port for listen request
@@ -65,7 +68,7 @@ function createApp() {
 }
  */
 
-/* 
+/*
 
 describe('Is email correct', function() {
 
@@ -218,11 +221,30 @@ describe('The phone  is non negative', function() {
 
 
 });
+describe('Its not a valid Address',function () {
+    it('Should return true or false',function (done) {
+        var correctAddress = UserAddress.validateAddress("Calle 53 Nro 27-34")
+        if(!correctAddress){
+            done();
+        }else{
+            done(new Error("Not sure what's happened"))
+        }
+    })
+});
+describe('Its not a valid DeliveryCost',function(){
+    it('Should return true or false', function (done) {
+        var correctDeliveryCost = CompanyDeliveryCost.validateDeliveryCost("5000")
+        if(!correctDeliveryCost){
+            done();
+        }else{
+            done(new Error("Not sure what's happened"))
+        }
+    })
+});
 
- */
 
 
-
+*/
 
 
 /*const User=require('./models/User');
