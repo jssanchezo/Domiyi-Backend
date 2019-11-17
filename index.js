@@ -18,6 +18,7 @@ const detail_routes=require('./routes/detail');
 const productOffer_routes=require('./routes/ProductOffer');
 const cors=require('cors');//solve problems with cors on requests
 const UserController = require('./controllers/user.js');
+const CompanyController = require('./controllers/company.js');
 
 
 //settings
@@ -91,6 +92,48 @@ describe('Its not a valid password', function() {
         }
         // We want this test to pass.
     });
+
+});
+
+
+describe('Is IdAdmin number correct', function() {
+
+    // This is the name of the test
+    it('Should return true or false', function(done) {
+        var correctIdAdmin = CompanyController.validateIdAdmin(1)
+        if (correctIdAdmin) {
+            // If the behavior is as expected, call done with no argument.
+            done();
+        }
+
+        else {
+            // Otherwise, call done with an error.
+            done(new Error("Not sure what's happened."));
+        }
+        // We want this test to pass.
+    });
+
+
+});
+
+
+describe('Is IdAdmin type correct', function() {
+
+    // This is the name of the test
+    it('Should return true or false', function(done) {
+        var correctTypeIdAdmin = CompanyController.validateTypeIdAdmin(134)
+        if (correctTypeIdAdmin) {
+            // If the behavior is as expected, call done with no argument.
+            done();
+        }
+
+        else {
+            // Otherwise, call done with an error.
+            done(new Error("Not sure what's happened."));
+        }
+        // We want this test to pass.
+    });
+
 
 });
 

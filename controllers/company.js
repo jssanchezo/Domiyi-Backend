@@ -19,6 +19,20 @@ const CompanyController={
     },
     async register(req,res){//register a new company
         await CompanyRepository.register(req,res);
+    },
+    validateIdAdmin(idAdmin){
+        if (idAdmin >= 1){
+            return true;
+        }else {
+            return false;
+        }
+    },
+    validateTypeIdAdmin(idAdmin){
+        if (typeof idAdmin== 'number'){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
 module.exports=CompanyController;
