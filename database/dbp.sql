@@ -234,11 +234,11 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`offer` (
 
 
 -- -----------------------------------------------------
--- Table `bqgr2cirsykagvh6xt6c`.`productOfferStatus`
+-- Table `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `bqgr2cirsykagvh6xt6c`.`productOfferStatus` ;
+DROP TABLE IF EXISTS `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` ;
 
-CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`productOfferStatus` (
+CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `status` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`));
@@ -261,9 +261,9 @@ CREATE TABLE IF NOT EXISTS `bqgr2cirsykagvh6xt6c`.`productOffer` (
   CONSTRAINT `fk_offer_has_product_product1`
     FOREIGN KEY (`idProduct`)
     REFERENCES `bqgr2cirsykagvh6xt6c`.`product` (`id`),
-  CONSTRAINT `fk_productOffer_productOfferStatus1`
+  CONSTRAINT `fk_productOffer_ProductOfferStatus1`
     FOREIGN KEY (`idStatus`)
-    REFERENCES `bqgr2cirsykagvh6xt6c`.`productOfferStatus` (`id`));
+    REFERENCES `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (`id`));
 
 
 ALTER TABLE `bqgr2cirsykagvh6xt6c`.`productOffer` ADD UNIQUE `unique_index`(`idProduct`, `idOffer`);
@@ -303,7 +303,7 @@ INSERT INTO `bqgr2cirsykagvh6xt6c`.`orderStatus` (`id`, `status`) VALUES (NULL, 
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`transactionStatus` (`id`, `status`) VALUES (NULL, 'EXITOSA'), (NULL, 'CANCELADA');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`typeOffer` (`id`, `type`) VALUES (NULL, 'DESCUENTO');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`productStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
-INSERT INTO `bqgr2cirsykagvh6xt6c`.`productOfferStatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`offer` (`id`, `value`, `idType`) VALUES (NULL, '0', '1');
 
 
