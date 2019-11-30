@@ -3,10 +3,10 @@ const ProducOfferRepository = require('../repositories/ProductOffer');
 const AuthorizationServer = require('../authentication/authorizationServer');
 const Detail = require('../repositories/detail');
 const ProductController = {
-    async getAll(req, res) {//get all products in database
+    async getAll(req, res) { //get all products in database
         await ProductRepository.SelectAll(req, res);
     },
-    async getByPrice(req, res) {//for get products in range of price
+    async getByPrice(req, res) { //for get products in range of price
         await ProductRepository.SelectByPrice(req, res);
     },
     async getById(req, res) {
@@ -46,22 +46,22 @@ const ProductController = {
             console.log(e);
             res.status(400).send("hubo un error");
         })
-    } ,
-     isValidPrice(price){
-        if(price!=null && price>0){
-            return true 
+    },
+    isValidPrice(price) {
+        if (price != null && price > 0) {
+            return true
         }
         return false;
-    }
-    , isValidDescription(description){
-        if (description.length>0){
+    },
+    isValidDescription(description) {
+        if (description.length > 0) {
             return true;
-        }else {
+        } else {
             return false;
         }
     },
-    async register(req, res) {//let us register products
-      
+    async register(req, res) { //let us register products
+
         var product;
         product = await ProductRepository.register(req, res);
         if (product == null) {
@@ -73,16 +73,23 @@ const ProductController = {
                 res.status(201).json(product);
 
             } catch (e) {
-             console.log(e);
+                console.log(e);
             }
 
 
         }
-     
-    }   
+
+    },
+    async getByIdCompany(req, res) {
+
+        const product = await ProductRepository.SelectByIdCompany(req.body.idCompany);
+        if (product == null) {
+            res.status(400).send("hubo un error");
+        } else {
+            res.status(200).json(product);
+        }
 
 
+    }
 }
 module.exports = ProductController;
-
-

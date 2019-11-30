@@ -22,6 +22,7 @@ const CompanyController = require('./controllers/company.js');
 const ProductController = require('./controllers/product');
 const UserAddress = require('./controllers/user.js');
 const CompanyDeliveryCost = require('./controllers/company');
+const companyByCategory_routes = require('./routes/companyByCategory.js');
 
 
 //settings
@@ -42,6 +43,8 @@ app.use(authentication_route);
 app.use(order_routes);
 app.use(detail_routes);
 app.use(productOffer_routes);
+app.use(companyByCategory_routes);
+
 //starting the server
 promofactory = new PromoFactory();
 var discount = promofactory.getPromo("discount");

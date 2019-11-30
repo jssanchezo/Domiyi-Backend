@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 const ProductRepository = {
 
 
-    async SelectAll(req, res) {//we obtain all products
+    async SelectAll(req, res) { //we obtain all products
         /*connection.query(ProductTable.getQuerySelectAll(),(err,rows,fields)=>{
             if(!err){
                 res.json(rows);
@@ -73,7 +73,7 @@ const ProductRepository = {
 
     async register(req, res) {
         try {
-          const  product = await Product.create({
+            const product = await Product.create({
                 //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
                 idCompany: req.body.idCompany,
                 name: req.body.name,
@@ -96,7 +96,21 @@ const ProductRepository = {
     },
     async selectAllByIds(ids) {
         console.log(ids);
+    },
+    async SelectByIdCompany(Company) {
+        try {
+            product = await Product.findAll({
+
+                where: {
+                    idCompany: Company
+
+                }
+            });
+            return product;
+        } catch (e) {
+            return null;
+        }
+
     }
 }
 module.exports = ProductRepository;
-
