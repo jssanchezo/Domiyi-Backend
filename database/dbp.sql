@@ -357,3 +357,23 @@ FROM `bqgr2cirsykagvh6xt6c`.`order` o INNER JOIN `bqgr2cirsykagvh6xt6c`.`company
 `bqgr2cirsykagvh6xt6c`.`orderStatus` oS on o.idStatus = oS.id order by o.date
 ;
 
+CREATE or replace VIEW ProductOffersAndProduct AS SELECT
+p.id as id,
+p.idCompany,
+p.idStatus,
+p.name,
+p.description,
+p.price,
+p.image,
+tyo.type,
+of.value
+
+FROM `bqgr2cirsykagvh6xt6c`.`productOffer` pf INNER JOIN `bqgr2cirsykagvh6xt6c`.`product` p 
+on pf.idProduct = p.id
+inner join `bqgr2cirsykagvh6xt6c`.`offer` of on pf.idOffer=of.id
+inner join `bqgr2cirsykagvh6xt6c`.`typeOffer` tyo on of.idType=tyo.id
+
+
+where pf.idStatus=1
+;
+

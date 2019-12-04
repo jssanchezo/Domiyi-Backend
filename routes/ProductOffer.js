@@ -7,7 +7,7 @@ const ProductOfferController= require('../controllers/ProductOffer');
 
 
 router.post('/productOffer/IdsProductById',ProtectRoute,ProductOfferController.getIdsProductByIdsProductOffer);
-
+router.post('/productOffer/ByIdCompany',ProductOfferController.getByIdCompany);
 module.exports= router;
 
 
