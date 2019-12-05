@@ -377,3 +377,12 @@ inner join `bqgr2cirsykagvh6xt6c`.`typeOffer` tyo on of.idType=tyo.id
 where pf.idStatus=1
 ;
 
+CREATE or replace VIEW companiesByCategory AS SELECT DISTINCT
+c.id,
+c.image,
+c.name,
+proC.id as idCategory
+
+FROM `bqgr2cirsykagvh6xt6c`.`product` pro INNER JOIN `bqgr2cirsykagvh6xt6c`.`productCategory` proC on pro.idCategory = proC.id inner join
+`bqgr2cirsykagvh6xt6c`.`company` c on pro.idCompany = c.id order by c.id
+;
