@@ -1,8 +1,8 @@
 const Constants = {
-    host: 'localhost',
+    host: '34.95.169.111',
     user: 'root',
-    password: '',
-    database: 'domiyi_dbp'//fix the main parameters for the connection
+    password: '1234',
+    database: 'bqgr2cirsykagvh6xt6c'//fix the main parameters for the connection
 
 }
 module.exports = Constants;//export the constants
