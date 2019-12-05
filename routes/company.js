@@ -7,7 +7,7 @@ const CompanyController= require('../controllers/company.js');
 router.get('/companies',ProtectRoute,CompanyController.getAll);
 router.get('/companies/id',ProtectRoute,CompanyController.getById);
 router.get('/companies/category',ProtectRoute,CompanyController.getByCategory);
-router.get('/companies/idAdmin',ProtectRoute,CompanyController.getByAdminId);
+router.post('/companies/idAdmin',ProtectRoute,CompanyController.getByAdminId);
 router.get('/companies/company',ProtectRoute,CompanyController.getByCompany);
 router.post('/company/register',ProtectRoute,CompanyController.register);
 
