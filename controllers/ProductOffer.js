@@ -16,6 +16,17 @@ const ProductOfferController = {
             res.status(200).json(idsProduct)
         }
         
+    },
+    async getByIdCompany(req,res){
+        var productsOffers=await ProductOfferRepository.selectByIdCompany(req.body.idCompany);
+
+        if(productsOffers==null){
+            res.status(400).send("hubo un error");
+        }else{
+            res.status(200).json(productsOffers);
+        }
+
+
     }
     
 }

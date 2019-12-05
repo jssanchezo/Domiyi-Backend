@@ -1,6 +1,7 @@
 const connection=require('../Database-Utilities/Connection.js');
 const ProductTable=require('../Database-Utilities/Products.js');
 const ProductOffer=require('../models/ProductOffer')
+const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Sequelize=require('sequelize');
 const ProductOfferRepository={
     
@@ -86,6 +87,20 @@ const ProductOfferRepository={
             return ids;
         }catch(e){
             return null;
+        }
+    },
+    async selectByIdCompany(idCompany){
+        
+        
+        
+        try{
+            
+        const   productsOffers=await sequelize.query("SELECT * FROM ProductOffersAndProduct where idCompany =" + idCompany, {type: Sequelize.QueryTypes.SELECT})
+            return productsOffers;
+        }catch(e){
+        
+            return null;    
+        
         }
     }
 }
