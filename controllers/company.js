@@ -1,5 +1,6 @@
 const CompanyRepository=require('../repositories/company.js');
 const AuthorizationServer=require('../authentication/authorizationServer');
+const rollbar=require('../Logger/logger');
 const CompanyController={
     async getAll(req,res){
         AuthorizationServer.validateUser(req,res);

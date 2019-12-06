@@ -2,6 +2,7 @@ const connection = require('../Database-Utilities/Connection.js');
 const ProductTable = require('../Database-Utilities/Products.js');
 const Product = require('../models/Models').Product;
 const Sequelize = require('sequelize');
+const rollbar=require('../Logger/logger');
 const ProductRepository = {
 
 
@@ -42,6 +43,7 @@ const ProductRepository = {
             res.status(200).json(products);
         } catch (e) {
             console.log(e);
+            rollbar.error(e);
             res.status(400).send("hubo un error");
         }
     },
@@ -65,7 +67,7 @@ const ProductRepository = {
             });
             return product;
         } catch (e) {
-            return null;
+            return e;
         }
 
     },
@@ -91,7 +93,8 @@ const ProductRepository = {
         } catch (e) {
             //res.status(400).send("se produjo un error");
             //console.log(e);
-            return null;
+            //rollbar.error(e,req);
+            return e;
         }
     },
     async selectAllByIds(ids) {
