@@ -70,7 +70,7 @@ const ProductController = {
             try {
 
                 await ProducOfferRepository.registerDefault(product);
-                res.status(200).json(product);
+                res.status(201).json(product);
 
             } catch (e) {
              console.log(e);
