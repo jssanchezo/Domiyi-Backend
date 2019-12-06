@@ -1,6 +1,6 @@
 const companyByCategoryRepository = require('../repositories/companyByCategory');
 const AuthorizationServer = require('../authentication/authorizationServer');
-
+const rollbar=require('../Logger/logger');
 const companyByCategoryController = {
 
     async getCompanies(req, res) {

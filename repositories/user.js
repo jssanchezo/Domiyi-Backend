@@ -2,6 +2,7 @@ const express = require('express');
 const connection = require('../Database-Utilities/Connection.js');
 const UserTable = require('../Database-Utilities/Users.js');
 const User=require('../models/Models').User;
+const rollbar=require('../Logger/logger');
 const userRepository = {
 
     async SelectAll(req, res) {
@@ -19,6 +20,7 @@ const userRepository = {
             });
             res.status(200).json(Users);
         }catch(e){
+            rollbar.error(e,req);
             res.status(400).send("hubo un problema");
         }
             
@@ -43,6 +45,7 @@ const userRepository = {
                });
                res.status(201).json(newUser);
         }catch(e){
+            rollbar.error(e,req);
             res.status(400).send("hubo un error");
         }
     },
@@ -68,6 +71,7 @@ const userRepository = {
             //res.status(200).json(Users);
             callback(user);
         }catch(e){
+            rollbar.error(e,req);
             res.status(400).send("hubo un problema");
         }
         

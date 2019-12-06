@@ -2,6 +2,7 @@ const connection=require('../Database-Utilities/Connection.js');
 const ProductTable=require('../Database-Utilities/Products.js');
 const Category=require('../models/Category');
 const Sequelize=require('sequelize');
+const rollbar=require('../Logger/logger');
 const CategoryRepository={
     async SelectAll(req,res){
         try{

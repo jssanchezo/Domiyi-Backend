@@ -25,6 +25,7 @@
     "mocha": "^6.2.2",
     "mysql": "^2.17.1",
     "mysql2": "^2.0.0",
+    "rollbar": "^2.14.4",
     "sequelize": "^5.21.2"
   },
   "devDependencies": {

@@ -3,7 +3,7 @@ const ProductTable = require('../Database-Utilities/Products.js');
 const Detail = require('../models/Detail');
 const Sequelize = require('sequelize');
 const sequelize = require('../Database-Utilities/SequelizeConnection');
-
+const rollbar=require('../Logger/logger');
 const DetailRepository = {
 
     //
@@ -38,7 +38,7 @@ const DetailRepository = {
         } catch (e) {
             
             console.log(e);
-            return null;
+            return e;
         }
     },
     async SelectByOrderId(idOrder) {
@@ -48,7 +48,7 @@ const DetailRepository = {
             return details;
         } catch (e) {
 
-            return null;
+            return e;
         }
     },
 

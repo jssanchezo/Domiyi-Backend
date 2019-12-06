@@ -2,7 +2,7 @@ const connection = require('../Database-Utilities/Connection.js');
 const companyByCategory = require('../models/CompanyByCategory');
 const Sequelize = require('sequelize');
 const sequelize = require('../Database-Utilities/SequelizeConnection');
-
+const rollbar=require('../Logger/logger');
 const companyByCategoryRepository = {
 
     async SelectCompanyByIdCategory(req, res) {

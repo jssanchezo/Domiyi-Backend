@@ -5,6 +5,7 @@ const CompanyTable = require('../Database-Utilities/Companies.js');
 const Company = require('../models/Company');
 const Sequelize = require('sequelize');
 const sequelize = require('../Database-Utilities/SequelizeConnection');
+const rollbar=require('../Logger/logger');
 const CompanyRepository = {
     /*SelectByCategory(req,res){//here we implement a query with help of database utilites
         connection.query(CompanyTable.getQueryCompaniesByCategory(req.body.category),(err,rows,fields)=>{
