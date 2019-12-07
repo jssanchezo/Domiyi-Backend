@@ -5,5 +5,5 @@ const ProtectRoute=require('../authentication/protectRouteMiddleware');
 
 const TransactionController= require('../controllers/transaction');
 
-router.post('/PayPal',TransactionController.register);
+router.post('/paypal',TransactionController.registerPayPal);
 module.exports= router;

@@ -13,13 +13,13 @@ const TransactionRepository={
         }
 
     },
-    async register(req, res) {
+    async registerPayPal(req, res) {
         var transaction;
         try {
             transaction = await Transaction.create({
                 //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
                 idStatus: 1,
-                idpaymentMethod: req.body.idpaymentMethod
+                idpaymentMethod: 2
 
             });
             res.status(201).json(transaction);
