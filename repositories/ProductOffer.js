@@ -118,6 +118,30 @@ const ProductOfferRepository={
             }
 
 
+    },
+    async Insert(productoffer){
+        try{
+            const inserted=await ProductOffer.findOrCreate(
+                
+                
+                {where:{
+                    idProduct:productoffer.idProduct,
+                    idOffer:productoffer.idOffer
+                },
+                defaults:{
+                    idStatus:1
+                }
+            
+            
+            
+            });
+            return inserted;
+        }catch(e){
+            return e;
+        }
+
+
+
     }
 }
 module.exports=ProductOfferRepository;

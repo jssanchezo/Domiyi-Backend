@@ -41,6 +41,20 @@ const ProductOfferController = {
         }
 
 
+    },
+    
+    async register(req,res){
+        var registered=await ProductOfferRepository.Insert(req.body);
+        if(registered instanceof Error){
+            rollbar.error(registered,req);
+            res.status(400).send("hubo un error");
+        }else{
+        
+            
+            
+            res.status(201).json(registered);}
+
+
     }
     
 }
