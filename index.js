@@ -23,7 +23,7 @@ const ProductController = require('./controllers/product');
 const UserAddress = require('./controllers/user.js');
 const CompanyDeliveryCost = require('./controllers/company');
 const offer_routes=require('./routes/offer');
-
+const typeoffer_routes=require('./routes/typeoffer');
 //settings
 app.set('port', process.env.PORT || 3000); //set the number port for listen request
 //Middleware
@@ -31,6 +31,7 @@ app.use(cors());
 app.use(express.json()); //let us access to the info sended by json format
 
 ///Routes: use the routes
+app.use(typeoffer_routes);
 app.use(users_routes);
 app.use(offer_routes);
 app.use(company_routes);
