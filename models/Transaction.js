@@ -8,7 +8,7 @@ const Transaction=sequelize.define('transaction',{
     type:Sequelize.INTEGER,
     primaryKey:true 
   },
-idpaymentMethod:{
+paymentMethod:{
     type:Sequelize.INTEGER,
     allowNull:false,
     references:{
@@ -25,6 +25,7 @@ idStatus:{
       }
 }
 },{
-    timestamps:false
+    timestamps:false,
+    freezeTableName: true
 });
 module.exports=Transaction;
