@@ -7,6 +7,10 @@ const ProductController = {
     async getAll(req, res) {//get all products in database
         await ProductRepository.SelectAll(req, res);
     },
+    async getByWord(req, res) {//get all products in database
+        const products = await ProductRepository.selectByWord(req.body.name, res);
+
+    },
     async getByPrice(req, res) {//for get products in range of price
         await ProductRepository.SelectByPrice(req, res);
     },
