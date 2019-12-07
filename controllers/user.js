@@ -1,5 +1,5 @@
 const UserRepository = require('../repositories/user.js'); //import respository
-
+const rollbar=require('../Logger/logger');
 
 const UserController = { //in controller offer methods form  handle the database to the upper layer
     async getAll(req, res) {

@@ -2,7 +2,10 @@ const connection = require('../Database-Utilities/Connection.js');
 const ProductTable = require('../Database-Utilities/Products.js');
 const Product = require('../models/Models').Product;
 const Sequelize = require('sequelize');
+
 const sequelize = require('../Database-Utilities/SequelizeConnection');
+
+const rollbar=require('../Logger/logger');
 const ProductRepository = {
 
     async SelectAll(req, res) {//we obtain all products
@@ -42,6 +45,7 @@ const ProductRepository = {
             res.status(200).json(products);
         } catch (e) {
             console.log(e);
+            rollbar.error(e);
             res.status(400).send("hubo un error");
         }
     },
@@ -65,7 +69,7 @@ const ProductRepository = {
             });
             return product;
         } catch (e) {
-            return null;
+            return e;
         }
 
     },
@@ -91,12 +95,14 @@ const ProductRepository = {
         } catch (e) {
             //res.status(400).send("se produjo un error");
             //console.log(e);
-            return null;
+            //rollbar.error(e,req);
+            return e;
         }
     },
     async selectAllByIds(ids) {
         console.log(ids);
     },
+
     async selectByWord(word, res){
         try {
             const products =await Product.findAll({
@@ -113,7 +119,16 @@ const ProductRepository = {
             // UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
         catch (e) {
 
-            res.status(400).send("se produjo un error");
+            res.status(400).send("se produjo un error");}},
+
+    async Update(product){
+        product.updated=new Date();
+        try{
+            const updated= await Product.update(product,{where:{id:product.id}});
+            return updated;
+        }catch(e){
+            return e;
+
         }
 
     }

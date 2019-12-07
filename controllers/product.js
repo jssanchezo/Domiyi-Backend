@@ -2,6 +2,7 @@ const ProductRepository = require('../repositories/product.js');
 const ProducOfferRepository = require('../repositories/ProductOffer');
 const AuthorizationServer = require('../authentication/authorizationServer');
 const Detail = require('../repositories/detail');
+const rollbar=require('../Logger/logger');
 const ProductController = {
     async getAll(req, res) {//get all products in database
         await ProductRepository.SelectAll(req, res);
@@ -16,7 +17,8 @@ const ProductController = {
     async getById(req, res) {
 
         const product = await ProductRepository.SelectById(req.body.id);
-        if (product == null) {
+        if (product instanceof Error) {
+            rollbar.error(product,req);
             res.status(400).send("hubo un error");
         } else {
             res.status(200).json(product);
@@ -40,14 +42,17 @@ const ProductController = {
                     res.status(200).json(products);
                 }).catch((e) => {
                     console.log(e);
+                    rollbar.error(e);
                     res.status(400).send("hubo un error");
                 })
             }).catch((e) => {
                 console.log(e);
+                rollbar.error(e);
                 res.status(400).send("hubo un error");
             })
         }).catch((e) => {
             console.log(e);
+            rollbar.error(e);
             res.status(400).send("hubo un error");
         })
     } ,
@@ -68,7 +73,8 @@ const ProductController = {
       
         var product;
         product = await ProductRepository.register(req, res);
-        if (product == null) {
+        if (product instanceof Error) {
+            rollbar.error(product,req);
             res.status(400).send("hubo un error");
         } else {
             try {
@@ -77,12 +83,32 @@ const ProductController = {
                 res.status(201).json(product);
 
             } catch (e) {
+                
              console.log(e);
             }
 
 
         }
      
+    },
+    async EditProduct(req,res){
+        try{
+            const updated=await ProductRepository.Update(req.body);
+            if(updated instanceof Error){
+                rollbar.error(updated,req);
+               res.status(400).send("hubo un error");
+                console.log(updated);
+
+            }else{
+
+            res.status(200).json(updated);
+
+            }
+        
+        
+        }catch(e){
+
+        }
     }   
 
 

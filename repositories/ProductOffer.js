@@ -3,6 +3,7 @@ const ProductTable=require('../Database-Utilities/Products.js');
 const ProductOffer=require('../models/ProductOffer')
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Sequelize=require('sequelize');
+const rollbar=require('../Logger/logger');
 const ProductOfferRepository={
     
     async selectById(id){
@@ -32,6 +33,7 @@ const ProductOfferRepository={
             //return productoffers;
             return finalProductOffers;
            }catch(e){
+            rollbar.error(e);
             return null;
            }
 
@@ -99,9 +101,23 @@ const ProductOfferRepository={
             return productsOffers;
         }catch(e){
         
-            return null;    
+            return e;    
         
         }
+    },
+    async SelectByProductId(idProduct){
+        
+        try{
+            
+            const   productsOffers=await sequelize.query("SELECT * FROM ProductOffersAndProduct where id=" + idProduct, {type: Sequelize.QueryTypes.SELECT})
+                return productsOffers;
+            }catch(e){
+            
+                return e;    
+            
+            }
+
+
     }
 }
 module.exports=ProductOfferRepository;
