@@ -306,6 +306,7 @@ INSERT INTO `bqgr2cirsykagvh6xt6c`.`transactionStatus` (`id`, `status`) VALUES (
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`typeOffer` (`id`, `type`) VALUES (NULL, 'DESCUENTO');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`productStatus` (`id`, `status`) VALUES (NULL, 'DISPONIBLE'), (NULL, 'AGOTADO');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (`id`, `status`) VALUES (NULL, 'VIGENTE');
+INSERT INTO `bqgr2cirsykagvh6xt6c`.`ProductOfferStatus` (`id`, `status`) VALUES (NULL, 'NO VIGENTE');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`offer` (`id`, `value`, `idType`) VALUES (NULL, '0', '1');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`user` (`id`, `name`, `username`, `email`, `password`, `phone`, `address`) VALUES (NULL, 'Andres Sanchez', 'afsanchezsa', 'afsanchezsa@unal.edu.co', '1234', '3005557777', 'cra 15 a 45 b 67');
 INSERT INTO `bqgr2cirsykagvh6xt6c`.`company` (`id`, `idStatus`, `idAdmin`, `name`, `image`, `deliveryCost`) VALUES (NULL, '1', '1', 'Domiyi', 'https://desayunostony.com/images/servicio-a-domicilio-01.jpg', '2000');

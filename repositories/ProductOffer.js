@@ -118,6 +118,38 @@ const ProductOfferRepository={
             }
 
 
+    },
+    async Insert(productoffer){
+        try{
+            const inserted=await ProductOffer.findOrCreate(
+                
+                
+                {where:{
+                    idProduct:productoffer.idProduct,
+                    idOffer:productoffer.idOffer
+                },
+                defaults:{
+                    idStatus:1
+                }
+            
+            
+            
+            });
+            return inserted;
+        }catch(e){
+            return e;
+        }
+
+
+
+    },
+    async setAllDisabledByIdProduct(idProduct){
+        try{
+            const updated= await ProductOffer.update({idStatus:2},{where:{idProduct:idProduct}});
+            return updated;
+        }catch(e){
+            return e;
+        }
     }
 }
 module.exports=ProductOfferRepository;
