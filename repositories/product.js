@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../Database-Utilities/SequelizeConnection');
 
-const rollbar=require('../Logger/logger');
+const rollbar = require('../Logger/logger');
 const ProductRepository = {
 
     async SelectAll(req, res) {//we obtain all products
@@ -77,7 +77,7 @@ const ProductRepository = {
 
     async register(req, res) {
         try {
-          const  product = await Product.create({
+            const product = await Product.create({
                 //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
                 idCompany: req.body.idCompany,
                 name: req.body.name,
@@ -103,14 +103,14 @@ const ProductRepository = {
         console.log(ids);
     },
 
-    async selectByWord(word, res){
+    async selectByWord(word, res) {
         try {
-            const products =await Product.findAll({
-               where:{
-                   name : {
-                       [Sequelize.Op.like]: word + '%'
-                   }
-               }
+            const products = await Product.findAll({
+                where: {
+                    name: {
+                        [Sequelize.Op.like]: '%' + word + '%'
+                    }
+                }
             });
 
             res.json(products);
@@ -119,14 +119,16 @@ const ProductRepository = {
             // UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
         catch (e) {
 
-            res.status(400).send("se produjo un error");}},
+            res.status(400).send("se produjo un error");
+        }
+    },
 
-    async Update(product){
-        product.updated=new Date();
-        try{
-            const updated= await Product.update(product,{where:{id:product.id}});
+    async Update(product) {
+        product.updated = new Date();
+        try {
+            const updated = await Product.update(product, {where: {id: product.id}});
             return updated;
-        }catch(e){
+        } catch (e) {
             return e;
 
         }
