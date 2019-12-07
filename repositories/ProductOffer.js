@@ -142,6 +142,14 @@ const ProductOfferRepository={
 
 
 
+    },
+    async setAllDisabledByIdProduct(idProduct){
+        try{
+            const updated= await ProductOffer.update({idStatus:2},{where:{idProduct:idProduct}});
+            return updated;
+        }catch(e){
+            return e;
+        }
     }
 }
 module.exports=ProductOfferRepository;
