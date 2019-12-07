@@ -10,6 +10,7 @@ router.get('/products/price',ProtectRoute,ProductController.getByPrice) ;
 router.post('/products/id',ProtectRoute,ProductController.getById) ;
 router.post('/product/register',ProtectRoute,ProductController.register);
 router.post('/product/getByIdOrder',ProtectRoute,ProductController.getByIdOrder);
+router.post('/product/update',ProductController.EditProduct);
 module.exports= router;
 
 

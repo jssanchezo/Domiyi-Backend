@@ -86,6 +86,25 @@ const ProductController = {
 
         }
      
+    },
+    async EditProduct(req,res){
+        try{
+            const updated=await ProductRepository.Update(req.body);
+            if(updated instanceof Error){
+                rollbar.error(updated,req);
+               res.status(400).send("hubo un error");
+                console.log(updated);
+
+            }else{
+
+            res.status(200).json(updated);
+
+            }
+        
+        
+        }catch(e){
+
+        }
     }   
 
 

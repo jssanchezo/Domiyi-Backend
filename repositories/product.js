@@ -99,6 +99,16 @@ const ProductRepository = {
     },
     async selectAllByIds(ids) {
         console.log(ids);
+    },
+    async Update(product){
+        product.updated=new Date();
+        try{
+            const updated= await Product.update(product,{where:{id:product.id}});
+            return updated;
+        }catch(e){
+            return e;
+        }
+
     }
 }
 module.exports = ProductRepository;

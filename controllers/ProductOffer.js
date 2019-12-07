@@ -29,6 +29,18 @@ const ProductOfferController = {
         }
 
 
+    },
+    async getByIdProduct (req,res){
+        var productsOffers=await ProductOfferRepository.SelectByProductId(req.body.idProduct);
+
+        if(productsOffers instanceof Error){
+            rollbar.error(productsOffers,req);
+            res.status(400).send("hubo un error");
+        }else{
+            res.status(200).json(productsOffers);
+        }
+
+
     }
     
 }
