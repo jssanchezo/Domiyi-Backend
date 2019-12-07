@@ -22,7 +22,7 @@ const CompanyController = require('./controllers/company.js');
 const ProductController = require('./controllers/product');
 const UserAddress = require('./controllers/user.js');
 const CompanyDeliveryCost = require('./controllers/company');
-
+const offer_routes=require('./routes/offer');
 
 //settings
 app.set('port', process.env.PORT || 3000); //set the number port for listen request
@@ -32,7 +32,7 @@ app.use(express.json()); //let us access to the info sended by json format
 
 ///Routes: use the routes
 app.use(users_routes);
-
+app.use(offer_routes);
 app.use(company_routes);
 app.use(companiesStatus_routes);
 app.use(productsStatus_routes);

@@ -9,6 +9,7 @@ const ProductOfferController= require('../controllers/ProductOffer');
 router.post('/productOffer/IdsProductById',ProtectRoute,ProductOfferController.getIdsProductByIdsProductOffer);
 router.post('/productOffer/ByIdCompany',ProductOfferController.getByIdCompany);
 router.post('/productOffer/ByIdProduct',ProtectRoute,ProductOfferController.getByIdProduct);
+
 module.exports= router;
 
 
