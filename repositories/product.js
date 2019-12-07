@@ -2,8 +2,8 @@ const connection = require('../Database-Utilities/Connection.js');
 const ProductTable = require('../Database-Utilities/Products.js');
 const Product = require('../models/Models').Product;
 const Sequelize = require('sequelize');
+const sequelize = require('../Database-Utilities/SequelizeConnection');
 const ProductRepository = {
-
 
     async SelectAll(req, res) {//we obtain all products
         /*connection.query(ProductTable.getQuerySelectAll(),(err,rows,fields)=>{
@@ -96,7 +96,48 @@ const ProductRepository = {
     },
     async selectAllByIds(ids) {
         console.log(ids);
+    },
+    async selectByWord(word, res){
+        try {
+            const products =await Product.findAll({
+               where:{
+                   name : {
+                       [Sequelize.Op.like]: word + '%'
+                   }
+               }
+            });
+
+            res.json(products);
+
+        }
+            // UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
+        catch (e) {
+
+            res.status(400).send("se produjo un error");
+        }
+
     }
 }
 module.exports = ProductRepository;
 
+/*
+        try {
+            await Detail.update({
+                idOrder: idOrderNumber,
+            }, {
+                where: {
+                    id: {
+                        [Sequelize.Op.in]: arrayIds
+                    }
+                }
+            });
+
+            res.status(201).send("Update successfull")
+
+        }
+            // UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
+        catch (e) {
+
+            res.status(400).send("se produjo un error");
+        }
+ */

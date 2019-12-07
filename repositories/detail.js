@@ -77,43 +77,6 @@ const DetailRepository = {
             res.status(400).send("se produjo un error");
         }
 
-        /*
-        for (index = 0; index < arrayIds.length; index++) {
-            try {
-                await Detail.update({
-                    idOrder: idOrderNumber,
-                }, {
-                    where: {
-                        id: {
-                            [Sequelize.Op.in]: arrayIds
-                        }
-                    }
-                });
-                if (index = arrayIds.length - 1) {
-                    res.status(201).send("Update successfull")
-                }
-            }
-                // UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
-            catch (e) {
-                res.status(400).send("se produjo un error");
-            }
-        }
-
-         */
-
     }
 }
 module.exports = DetailRepository;
-
-/*
-Post.update({
-  updatedAt: null,
-}, {
-  where: {
-    deletedAt: {
-      [Op.ne]: null
-    }
-  }
-});
-// UPDATE post SET updatedAt = null WHERE deletedAt NOT NULL;
- */
