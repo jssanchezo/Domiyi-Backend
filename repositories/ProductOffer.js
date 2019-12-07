@@ -104,6 +104,20 @@ const ProductOfferRepository={
             return e;    
         
         }
+    },
+    async SelectByProductId(idProduct){
+        
+        try{
+            
+            const   productsOffers=await sequelize.query("SELECT * FROM ProductOffersAndProduct where id=" + idProduct, {type: Sequelize.QueryTypes.SELECT})
+                return productsOffers;
+            }catch(e){
+            
+                return e;    
+            
+            }
+
+
     }
 }
 module.exports=ProductOfferRepository;
