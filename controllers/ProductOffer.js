@@ -48,11 +48,12 @@ const ProductOfferController = {
         if(disabled instanceof Error){
             rollbar.error(disabled,req);
             res.status(400).send("hubo un error");
-
+            console.log(disabled);
         }else{
             var registered=await ProductOfferRepository.Insert(req.body);
             if(registered instanceof Error){
                 rollbar.error(registered,req);
+                console.log(registered);
                 res.status(400).send("hubo un error");
             }else{
             
