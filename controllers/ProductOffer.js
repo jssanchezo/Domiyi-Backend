@@ -43,26 +43,31 @@ const ProductOfferController = {
 
     },
     
-    async register(req,res){
-        const disabled=await ProductOfferRepository.setAllDisabledByIdProduct(req.body.idProduct);
-        if(disabled instanceof Error){
-            rollbar.error(disabled,req);
-            res.status(400).send("hubo un error");
-            console.log(disabled);
-        }else{
-            var registered=await ProductOfferRepository.Insert(req.body);
-            if(registered instanceof Error){
-                rollbar.error(registered,req);
-                console.log(registered);
+    async  register(req,res){
+        const first= ProductOfferRepository.setAllDisabledByIdProduct(req.body.idProduct);
+        first.then(async (disabled)=>{
+
+            if(disabled instanceof Error){
+                rollbar.error(disabled,req);
                 res.status(400).send("hubo un error");
+                console.log(disabled);
             }else{
-            
+                var registered=await ProductOfferRepository.Insert(req.body);
+                if(registered instanceof Error){
+                    rollbar.error(registered,req);
+                    console.log(registered)
+                    res.status(400).send("hubo un error");
+                }else{
                 
-                
-                res.status(201).json(registered);}
-    
-    
-        }
+                    
+                    
+                    res.status(201).json(registered);}
+        
+        
+            }
+
+        }).catch((e)=>{console.log(e)});
+        
         }
        
     

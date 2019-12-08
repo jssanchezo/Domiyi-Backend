@@ -121,7 +121,7 @@ const ProductOfferRepository={
     },
     async Insert(productoffer){
         try{
-            const inserted=await ProductOffer.findOrCreate(
+            const inserted= ProductOffer.findOrCreate(
                 
                 
                 {where:{
@@ -134,7 +134,13 @@ const ProductOfferRepository={
             
             
             
-            });
+            }).then(([user,created])=>{
+                if(!created){
+                    user.idStatus=1
+                    user.save()
+                
+                }
+                });
             return inserted;
         }catch(e){
             return e;
