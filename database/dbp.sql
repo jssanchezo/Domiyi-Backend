@@ -376,8 +376,6 @@ FROM `bqgr2cirsykagvh6xt6c`.`productOffer` pf INNER JOIN `bqgr2cirsykagvh6xt6c`.
 on pf.idProduct = p.id
 inner join `bqgr2cirsykagvh6xt6c`.`offer` of on pf.idOffer=of.id
 inner join `bqgr2cirsykagvh6xt6c`.`typeOffer` tyo on of.idType=tyo.id
-
-
 where pf.idStatus=1
 ;
 
