@@ -361,6 +361,7 @@ FROM `bqgr2cirsykagvh6xt6c`.`order` o INNER JOIN `bqgr2cirsykagvh6xt6c`.`company
 
 CREATE or replace VIEW ProductOffersAndProduct AS SELECT
 p.id as id,
+pf.id as idProductOffer,
 p.idCompany,
 p.idStatus,
 p.name,

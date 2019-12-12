@@ -79,15 +79,23 @@ const DetailRepository = {
 
     },
     async RegisterMany(details){
-        var inserted=[];
+        
         try{
-            details.map(dt=>{
-                inserted.push(await Detail.create(dt));
+           /* details.map(dt=>{
+                dt.idCompany=idCompany;
+               var ins= Detail.create(dt)
+                inserted.push( ins);
 
 
-            });
+            });*/
+            
+            console.log(details);
+            
+            const inserted=await Detail.bulkCreate(details);
+            console.log(inserted);
             return inserted;
         }catch(e){  
+            
             return e;
 
         }
