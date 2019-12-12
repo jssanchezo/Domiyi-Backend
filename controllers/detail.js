@@ -49,6 +49,20 @@ const DetailController = {
     },
     async updateDetailsOrder(req, res) {
         await DetailRepository.UpdateIdOrder(req, res);
+    },
+    async registerMany(req,res){
+                const inserted=await DetailRepository.RegisterMany(req.body.details);
+if(inserted instanceof Error){
+    rollbar.error(inserted,req);
+    res.status(400).send("hubo un error");
+    console.log(inserted);
+}else{
+console.log(inserted);
+res.status(201).json(inserted);
+
+}
+
+
     }
 }
 module.exports = DetailController;

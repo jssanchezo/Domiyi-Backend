@@ -77,6 +77,28 @@ const DetailRepository = {
             res.status(400).send("se produjo un error");
         }
 
+    },
+    async RegisterMany(details){
+        
+        try{
+           /* details.map(dt=>{
+                dt.idCompany=idCompany;
+               var ins= Detail.create(dt)
+                inserted.push( ins);
+
+
+            });*/
+            
+            console.log(details);
+            
+            const inserted=await Detail.bulkCreate(details);
+            console.log(inserted);
+            return inserted;
+        }catch(e){  
+            
+            return e;
+
+        }
     }
 }
 module.exports = DetailRepository;
