@@ -4,7 +4,7 @@ constructor(){
     super();
 }
  applyPromo(product,value){
-product.price=(1-value)*product.price;
+product.unitPrice=(1-value)*product.unitPrice;
 return product;
  }
 }

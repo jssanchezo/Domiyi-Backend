@@ -10,13 +10,13 @@ class PromoFactory {
      
      
     getPromo(type){
-        switch(type.toLowerCase()){
-            case "discount":
+        switch(type.toLowerCase().replace(" ","")){
+            case "descuento":
                 if(this.discount==null){
                     this.discount=new Discount();
                }
                return  this.discount;
-            case "minusprice":
+            case "menorprecio":
                 if(this.minusPrice==null){
                     this.minusPrice=new MinusPrice();
                 }    

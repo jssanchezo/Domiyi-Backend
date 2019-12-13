@@ -48,15 +48,15 @@ app.use(productOffer_routes);
 app.use(paymentMethod_routes);
 app.use(transaction_routes);
 //starting the server
-promofactory = new PromoFactory();
-var discount = promofactory.getPromo("discount");
+/*promofactory = new PromoFactory();
+var discount = promofactory.getPromo("DESCUENTO");
 var product = { price: 3000 };
 product = discount.applyPromo(product, 0.1);
 console.log("price with 10 % off is " + product.price);
-var minuspricepromo = promofactory.getPromo("minusprice");
+var minuspricepromo = promofactory.getPromo("MENOS PRECIO");
 product = minuspricepromo.applyPromo(product, 1000);
 console.log("price with 10 % off is and minus 1000 is " + product.price);
-
+*/
 //  prom.applyPromo();
 app.listen(app.get('port'), () => {
     console.log('server on port', app.get('port'));
