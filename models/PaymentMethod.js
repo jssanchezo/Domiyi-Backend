@@ -7,7 +7,7 @@ const PaymentMethod=sequelize.define('paymentMethod',{
     primaryKey:true,
     autoIncrement:true 
   },
-name:{
+paymentMethod:{
     type:Sequelize.STRING,
     allowNull:false
 }

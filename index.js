@@ -16,6 +16,8 @@ const product_routes = require('./routes/product.js');
 const authentication_route = require('./authentication/authenticationRoute.js');
 const detail_routes = require('./routes/detail');
 const productOffer_routes = require('./routes/ProductOffer');
+const paymentMethod_routes = require('./routes/paymentMethod');
+const transaction_routes = require('./routes/transaction');
 const cors = require('cors'); //solve problems with cors on requests
 const UserController = require('./controllers/user.js');
 const CompanyController = require('./controllers/company.js');
@@ -43,6 +45,8 @@ app.use(authentication_route);
 app.use(order_routes);
 app.use(detail_routes);
 app.use(productOffer_routes);
+app.use(paymentMethod_routes);
+app.use(transaction_routes);
 //starting the server
 promofactory = new PromoFactory();
 var discount = promofactory.getPromo("discount");
