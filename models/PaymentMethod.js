@@ -1,17 +1,8 @@
 const Sequelize=require('sequelize');
 const Model=Sequelize.Model;
 const sequelize=require('../Database-Utilities/SequelizeConnection');
-const PaymentMethod=sequelize.define('paymentMethod',{
-  id:{
-    type:Sequelize.INTEGER,
-    primaryKey:true,
-    autoIncrement:true 
-  },
-paymentMethod:{
-    type:Sequelize.STRING,
-    allowNull:false
-}
-},{
+const PaymentMethodDefinition=require('../tabledefinitions/PaymentMethod');
+const PaymentMethod=sequelize.define('paymentMethod',PaymentMethodDefinition,{
     timestamps:false,
     freezeTableName: true
 });

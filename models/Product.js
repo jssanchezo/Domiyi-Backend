@@ -4,59 +4,9 @@ const Company=require('./Company');
 const sequelize=require('../Database-Utilities/SequelizeConnection');
 const Category=require('../models/Category');
 const ProductStatus=require('../models/ProductStatus');
+const ProductDefinition=require('../tabledefinitions/Product');
 //const Company=require('../models/Company');
-const Product=sequelize.define('product',{
-  id:{
-    type:Sequelize.INTEGER,
-    primaryKey:true,
-    autoIncrement:true 
-  },
-idCompany:{
-    type:Sequelize.INTEGER,
-    allowNull:false,
-    references:{
-        model:Company,
-        key:'id'
-        }
-},
-name:{
-    type:Sequelize.STRING,
-    allowNull:false
-},
-description:{
-    type:Sequelize.STRING,
-    allowNull:false
-},
-price:{
-    type:Sequelize.DOUBLE,
-    allowNull:false    
-},
-image:{
-    type:Sequelize.STRING,
-    allowNull:false
-},
-idStatus:{
-    type:Sequelize.INTEGER,
-    allowNull:false,
-    references:{
-        model:ProductStatus,
-        key:'id'
-        }
-},
-idCategory:{
-    type:Sequelize.INTEGER,
-    allowNull:false,
-    references:{
-    model:Category,
-    key:'id'
-    }
-},
-updated:{
-    type:Sequelize.DATE,
-    allowNull:false,
-    defaultValue:Sequelize.NOW
-}
-},{
+const Product=sequelize.define('product',ProductDefinition,{
     timestamps:false,
     freezeTableName: true
 });
