@@ -19,7 +19,7 @@ const TransactionRepository={
             transaction = await Transaction.create({
                 //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
                 idStatus: 1,
-                paymentMethod: 2
+                  paymentMethod: 2
 
             });
             res.status(201).json(transaction);
