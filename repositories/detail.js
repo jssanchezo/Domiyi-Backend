@@ -89,10 +89,10 @@ const DetailRepository = {
 
             });*/
             
-            console.log(details);
+            
             
             const inserted=await Detail.bulkCreate(details);
-            console.log(inserted);
+            
             return inserted;
         }catch(e){  
             

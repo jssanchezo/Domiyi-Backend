@@ -3,8 +3,8 @@ class MinusPrice extends Promo{
 constructor(){
     super();
 }
- applyPromo(product,value){
-product.price=product.price-value;
+applyPromo(product,value){
+product.unitPrice=product.unitPrice-value;
 return product;
 }
 }

@@ -1,7 +1,7 @@
 
 class Promo {
 applyPromo(product,values){
-
+throw new Error("implement de Method");
 }
 }
 
