@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "domiyi_dbp",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+    },
+  "test": {
+    "username": "root",
+    "password": "1234",
+    "database": "bqgr2cirsykagvh6xt6c",
+    "host": "34.95.169.111",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "1234",
+    "database": "bqgr2cirsykagvh6xt6c",
+    "host": "34.95.169.111",
+    "dialect": "mysql"
+  }
+}

@@ -1,17 +1,8 @@
 const Sequelize=require('sequelize');
 const Model=Sequelize.Model;
+const CompanyStatusDefinition=require('../tabledefinitions/CompanyStatus');
 const sequelize=require('../Database-Utilities/SequelizeConnection');
-const CompanyStatus=sequelize.define('companyStatus',{
-  id:{
-    type:Sequelize.INTEGER,
-    primaryKey:true,
-    autoIncrement:true
-  },
-status:{
-    type:Sequelize.STRING,
-    allowNull:false
-}
-},{
+const CompanyStatus=sequelize.define('companyStatus',CompanyStatusDefinition,{
     timestamps:false,
     freezeTableName: true
 });
