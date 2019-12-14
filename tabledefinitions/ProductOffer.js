@@ -13,7 +13,7 @@ module.exports={
     type:Sequelize.INTEGER,
     allowNull:false,
     references:{
-        model:Product,
+        model:{tableName:'product'},
         key:'id'
         }
   },
@@ -21,7 +21,7 @@ idOffer:{
     type:Sequelize.INTEGER,
     allowNull:false,
     references:{
-        model:Offer,
+        model:{tableName:'offer'},
         key:'id'
         }
 },
@@ -29,7 +29,7 @@ idStatus:{
     type:Sequelize.INTEGER,
     allowNull:false,
     references:{
-        model:ProductOfferStatus,
+        model:{tableName:'productOfferStatus'},
         key:'id'
         }
 }

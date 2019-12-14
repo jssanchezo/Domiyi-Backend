@@ -12,7 +12,7 @@ module.exports={
       type:Sequelize.INTEGER,
       allowNull:false,
       references:{
-        model:PaymentMethod,
+        model:{tableName:'paymentMethod'},//
         key:'id'
         }
   },
@@ -20,7 +20,7 @@ module.exports={
       type:Sequelize.INTEGER,
       allowNull:false,
       references:{
-        model:StatusTransaction,
+        model:{tableName:'statusTransaction'},
         key:'id'
         }
   }
