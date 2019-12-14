@@ -19,10 +19,12 @@ const TransactionRepository={
             transaction = await Transaction.create({
                 //id:req.body.id,//si no se agrega se ejecuta el autoincrement en la bd
                 idStatus: 1,
-                  paymentMethod: 2
+                paymentMethod: 2
 
             });
-            res.status(201).json(transaction);
+            const id = await sequelize.query("SELECT id * FROM transaction WHERE MAX(id)", {type: Sequelize.QueryTypes.SELECT});
+            return id;
+            res.status(201).json(id);
         } catch (e) {
             res.status(400).send("se produjo un error");
             console.log(e);
