@@ -1,6 +1,7 @@
 const connection=require('../Database-Utilities/Connection.js');
 const Transaction=require('../models/Transaction');
 const Sequelize=require('sequelize');
+const sequelize = require('../Database-Utilities/SequelizeConnection');
 const TransactionRepository={
     async SelectAll(req,res){
         try{
@@ -22,8 +23,7 @@ const TransactionRepository={
                 paymentMethod: 2
 
             });
-            const id = await sequelize.query("SELECT id * FROM transaction WHERE MAX(id)", {type: Sequelize.QueryTypes.SELECT});
-            return id;
+            const id = await sequelize.query("SELECT * FROM domiyi_dbp.transaction ORDER BY id DESC LIMIT 0, 1", {type: Sequelize.QueryTypes.SELECT});
             res.status(201).json(id);
         } catch (e) {
             res.status(400).send("se produjo un error");
