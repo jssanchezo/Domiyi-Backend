@@ -1,5 +1,5 @@
 'use strict';
-
+const StoreDefinition=require('../tabledefinitions/Store');
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
@@ -9,6 +9,9 @@ module.exports = {
       Example:
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
+   return queryInterface.createTable('store',StoreDefinition,{
+    timestamps:false
+});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -19,5 +22,6 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
+   return queryInterface.dropTable('store');
   }
 };

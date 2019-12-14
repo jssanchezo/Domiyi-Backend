@@ -1,5 +1,5 @@
 'use strict';
-
+const OfferDefinition=require('../tabledefinitions/Offer');
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
@@ -9,6 +9,10 @@ module.exports = {
       Example:
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
+   return queryInterface.createTable('offer',OfferDefinition,{
+    timestamps:false,
+    freezeTableName: true//ASI NO SE CAMBIA EL NOMBRE DE LA TABLA A PLURAL AL SINCRONIZAR CON LA BD
+});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -18,6 +22,6 @@ module.exports = {
 
       Example:
       return queryInterface.dropTable('users');
-    */
+    */return queryInterface.dropTable('offer');
   }
 };
