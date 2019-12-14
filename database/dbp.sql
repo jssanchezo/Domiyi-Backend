@@ -406,3 +406,20 @@ FROM `bqgr2cirsykagvh6xt6c`.`order` o INNER JOIN `bqgr2cirsykagvh6xt6c`.`user` u
 `bqgr2cirsykagvh6xt6c`.`product` prod on pro.idProduct = prod.id inner join
 `bqgr2cirsykagvh6xt6c`.`orderStatus` oS on o.idStatus = oS.id order by o.date
 ;
+
+--
+-- insertado de datos para la tabla `paymentmethod`
+--
+
+INSERT INTO `paymentmethod` (`id`, `paymentMethod`) VALUES
+(1, 'Efectivo'),
+(2, 'PayPal'),
+(3, 'Credit Card');
+
+--
+-- Insertado de datos para la tabla `transactionstatus`
+--
+
+INSERT INTO `transactionstatus` (`id`, `status`) VALUES
+(1, 'EXITOSA'),
+(2, 'CANCELADA');
