@@ -9,7 +9,7 @@ module.exports={
       type:Sequelize.INTEGER,
       allowNull:false,
       references:{
-          model:Company,
+          model:{tableName:'company'},
           key:'id'
           }
   },

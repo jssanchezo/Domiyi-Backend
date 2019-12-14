@@ -9,12 +9,12 @@ module.exports={
   value:{
       type:Sequelize.DOUBLE,
       allowNull:false
-  },
+  },//
   idType:{
       type:Sequelize.INTEGER,
       allowNull:false,
       references:{
-        model:TypeOffer,
+        model:{tableName:'typeOffer'},
         key:'id'
         }
   }
