@@ -40,5 +40,16 @@ const OrderRepository = {
             return e;
         }
     },
+    async selectOrderByUser(idUser) {
+        try {
+
+            const orders = await sequelize.query("SELECT * FROM ordersByUser where idUser =" + idUser, {type: Sequelize.QueryTypes.SELECT})
+
+            return orders;
+        } catch (e) {
+            console.log(e);
+            return e;
+        }
+    }
 }
 module.exports = OrderRepository;

@@ -389,3 +389,37 @@ proC.id as idCategory
 FROM `bqgr2cirsykagvh6xt6c`.`product` pro INNER JOIN `bqgr2cirsykagvh6xt6c`.`productCategory` proC on pro.idCategory = proC.id inner join
 `bqgr2cirsykagvh6xt6c`.`company` c on pro.idCompany = c.id order by c.id
 ;
+
+CREATE or replace VIEW ordersByUser AS SELECT
+u.id as idUser,
+d.idOrder,
+prod.name,
+d.quantity,
+d.observation,
+d.unitPrice,
+o.address,
+o.date,
+oS.status
+FROM `bqgr2cirsykagvh6xt6c`.`order` o INNER JOIN `bqgr2cirsykagvh6xt6c`.`user` u on o.idUser = u.id inner join
+`bqgr2cirsykagvh6xt6c`.`detail` d on o.id = d.idOrder inner join
+`bqgr2cirsykagvh6xt6c`.`productOffer` pro on d.idProductOffer = pro.id inner join
+`bqgr2cirsykagvh6xt6c`.`product` prod on pro.idProduct = prod.id inner join
+`bqgr2cirsykagvh6xt6c`.`orderStatus` oS on o.idStatus = oS.id order by o.date
+;
+
+--
+-- insertado de datos para la tabla `paymentmethod`
+--
+
+INSERT INTO `paymentmethod` (`id`, `paymentMethod`) VALUES
+(1, 'Efectivo'),
+(2, 'PayPal'),
+(3, 'Credit Card');
+
+--
+-- Insertado de datos para la tabla `transactionstatus`
+--
+
+INSERT INTO `transactionstatus` (`id`, `status`) VALUES
+(1, 'EXITOSA'),
+(2, 'CANCELADA');
