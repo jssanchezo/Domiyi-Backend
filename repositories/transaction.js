@@ -23,7 +23,7 @@ const TransactionRepository={
                 paymentMethod: 2
 
             });
-            const id = await sequelize.query("SELECT * FROM domiyi_dbp.transaction ORDER BY id DESC LIMIT 0, 1", {type: Sequelize.QueryTypes.SELECT});
+            const id = await sequelize.query("SELECT * FROM transaction ORDER BY id DESC LIMIT 0, 1", {type: Sequelize.QueryTypes.SELECT});
             res.status(201).json(id);
         } catch (e) {
             res.status(400).send("se produjo un error");
