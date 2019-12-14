@@ -52,7 +52,7 @@ const DetailController = {
         await DetailRepository.UpdateIdOrder(req, res);
     },
     async registerMany(req,res){
-        console.log(req.body.details);
+       
         var promo;
         var promoFactory=new PromoFactory();
         req.body.details.map(dt=>{
@@ -60,7 +60,7 @@ const DetailController = {
             promo.applyPromo(dt,dt.value);
         });
         
-        console.log(req.body.details);
+        
                 const inserted=await DetailRepository.RegisterMany(req.body.details);
 if(inserted instanceof Error){
     rollbar.error(inserted,req);
